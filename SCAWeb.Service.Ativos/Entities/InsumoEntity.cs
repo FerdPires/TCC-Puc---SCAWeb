@@ -11,7 +11,7 @@ namespace SCAWeb.Service.Ativos.Entities
         }
 
         public InsumoEntity(string descricaoInsumo, string statusInsumo, DateTime dataManutPrev, 
-            DateTime dataAquisicao, DateTime dataAtualizacao, int qtdDiasManutPrev, string tipoInsumo, string fornecInsumo, string User)
+            DateTime dataAquisicao, DateTime dataAtualizacao, int qtdDiasManutPrev, Guid tipoInsumo, Guid fornecInsumo, string User)
         {
             descricao_insumo = descricaoInsumo;
             status_insumo = statusInsumo;
@@ -30,8 +30,8 @@ namespace SCAWeb.Service.Ativos.Entities
         public DateTime data_aquisicao { get; private set; }
         public DateTime data_atualizacao { get; private set; }
         public int qtd_dias_manut_prev { get; private set; }
-        public string tipo_insumo { get; private set; }
-        public string fornec_insumo { get; private set; }
+        public Guid tipo_insumo { get; private set; }
+        public Guid fornec_insumo { get; private set; }
         public string user { get; private set; }
 
         public void UpdateInsumo(string descricaoInsumo, string statusInsumo, DateTime dataManutPrev, 
@@ -55,7 +55,7 @@ namespace SCAWeb.Service.Ativos.Entities
                     .IsNotNull(data_aquisicao, "Data Aquisição", "A data de aquisição do Insumo não pode ser vazia.")
                     .IsNotNull(data_atualizacao, "Data Atualização", "A data de atualização do Insumo não pode ser vazia.")
                     .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "A quantidade de dias da Manutenção Preventiva não pode ser vazia.")
-                    .IsGreaterThan(data_manut_prev, data_manut_prev.AddDays(qtd_dias_manut_prev), "Manutenção Preventida", "A data da Manutenção preventiva deve ser maior que a informada.")
+                    .IsLowerOrEqualsThan(data_manut_prev, data_aquisicao.AddDays(qtd_dias_manut_prev), "Manutenção Preventida", "A data da Manutenção preventiva deve ser maior que a informada.")
                     .HasMaxLen(descricao_insumo, 100, "Descrição do Insumo", "A Descrição do Insumo deve conter no máximo 100 caracteres.")
             );
         }

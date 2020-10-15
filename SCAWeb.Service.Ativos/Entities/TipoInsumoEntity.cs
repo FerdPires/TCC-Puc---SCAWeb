@@ -25,7 +25,7 @@ namespace SCAWeb.Service.Ativos.Entities
         public DateTime data_atualizacao { get; private set; }
         public string user { get; private set; }
 
-        public void UpdateTipoInsumoEntity(string descricaoTpInsumo, bool Status, int qtdDiasManutPrev, DateTime dataAtualizacao, string User)
+        public void UpdateTipoInsumo(string descricaoTpInsumo, bool Status, int qtdDiasManutPrev, DateTime dataAtualizacao, string User)
         {
             descricao_tp_insumo = descricaoTpInsumo;
             status = Status;

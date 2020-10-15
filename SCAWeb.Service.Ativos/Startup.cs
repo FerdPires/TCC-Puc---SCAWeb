@@ -2,11 +2,13 @@ using System;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SCAWeb.Service.Ativos.Data;
 
 namespace SCAWeb.Service.Ativos
 {
@@ -21,6 +23,10 @@ namespace SCAWeb.Service.Ativos
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
+            services.AddDbContext<AtivosContext>(options => options.UseInMemoryDatabase("Database"));
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = "AuthSchemeKey";
@@ -52,8 +58,6 @@ namespace SCAWeb.Service.Ativos
                 });
             });
             #endregion
-
-            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -65,6 +69,11 @@ namespace SCAWeb.Service.Ativos
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();
