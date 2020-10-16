@@ -10,26 +10,22 @@ namespace SCAWeb.Service.Ativos.Entities
 
         }
 
-        public TipoInsumoEntity(string descricaoTpInsumo, bool Status, int qtdDiasManutPrev, DateTime dataAtualizacao, string User)
+        public TipoInsumoEntity(string descricaoTpInsumo, DateTime dataAtualizacao, string User)
         {
             descricao_tp_insumo = descricaoTpInsumo;
-            status = Status;
-            qtd_dias_manut_prev = qtdDiasManutPrev;
+         //   qtd_dias_manut_prev = qtdDiasManutPrev;
             data_atualizacao = dataAtualizacao;
             user = User;
         }
 
         public string descricao_tp_insumo { get; private set; }
-        public bool status { get; private set; }
-        public int qtd_dias_manut_prev { get; private set; }
+       // public int qtd_dias_manut_prev { get; private set; }
         public DateTime data_atualizacao { get; private set; }
         public string user { get; private set; }
 
-        public void UpdateTipoInsumo(string descricaoTpInsumo, bool Status, int qtdDiasManutPrev, DateTime dataAtualizacao, string User)
+        public void UpdateTipoInsumo(string descricaoTpInsumo, DateTime dataAtualizacao, string User)
         {
             descricao_tp_insumo = descricaoTpInsumo;
-            status = Status;
-            qtd_dias_manut_prev = qtdDiasManutPrev;
             data_atualizacao = dataAtualizacao;
             user = User;
         }
@@ -40,9 +36,8 @@ namespace SCAWeb.Service.Ativos.Entities
                 new Contract()
                     .Requires()
                     .IsNotNullOrEmpty(descricao_tp_insumo, "Tipo Insumo", "Favor informar o Tipo do Insumo.")
-                    .IsNotNull(status, "Status Tipo Insumo", "Favor informar o status do Tipo do Insumo.")
-                    .IsNotNull(status, "Status Tipo Insumo", "Favor informar o status do Tipo do Insumo.")
-                    .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "Favor informar a quantidade de dias da Manutenção Preventiva.")
+                    .IsNotNull(data_atualizacao, "Data Atualização", "A data de atualização do Tipo de Insumo não pode ser vazia.")
+                //    .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "Favor informar a quantidade de dias da Manutenção Preventiva.")
                     .HasMaxLen(descricao_tp_insumo, 100, "Tipo Insumo", "O Tipo do Insumo deve conter no máximo 100 caracteres.")
             );
         }

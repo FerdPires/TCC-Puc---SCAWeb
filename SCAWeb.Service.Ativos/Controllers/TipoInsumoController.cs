@@ -11,49 +11,49 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/insumo")]
+    [Route("v1/tipoinsumo")]
     [Authorize]
-    public class InsumoController : ControllerBase
+    public class TipoInsumoController : ControllerBase
     {
         [Route("")]
         [HttpPost]
         public IServiceActionResult Create(
-            [FromBody] InsumoEntity insumo, 
-            [FromServices] IInsumoService service
+            [FromBody] TipoInsumoEntity tipoInsumo,
+            [FromServices] ITipoInsumoService service
         )
         {
-          //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
-            return (ServiceActionResult)service.CreateInsumo(insumo);
+            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return (ServiceActionResult)service.CreateTipoInsumo(tipoInsumo);
         }
 
         [Route("")]
         [HttpPut]
         public IServiceActionResult Update(
-           [FromBody] InsumoEntity insumo,
-           [FromServices] IInsumoService service
+           [FromBody] TipoInsumoEntity tipoInsumo,
+           [FromServices] ITipoInsumoService service
         )
         {
             //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
-            return (ServiceActionResult)service.UpdateInsumo(insumo);
+            return (ServiceActionResult)service.UpdateTipoInsumo(tipoInsumo);
         }
 
         [Route("{id}")]
         [HttpDelete]
         public IServiceActionResult Delete(
             Guid id,
-           [FromServices] IInsumoService service
+           [FromServices] ITipoInsumoService service
         )
         {
-          //  var insumo = new InsumoEntity();
+            //  var insumo = new InsumoEntity();
 
             //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
-            return (ServiceActionResult)service.DeleteInsumo(id);
+            return (ServiceActionResult)service.DeleteTipoInsumo(id);
         }
 
         [Route("all")]
         [HttpGet]
-        public IList<InsumoEntity> GetAll(
-            [FromServices] IInsumoRepository repository
+        public IList<TipoInsumoEntity> GetAll(
+            [FromServices] ITipoInsumoRepository repository
         )
         {
             return repository.GetAll();
@@ -61,9 +61,9 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("{id}")]
         [HttpGet]
-        public InsumoEntity GetById(
+        public TipoInsumoEntity GetById(
             Guid id,
-            [FromServices] IInsumoRepository repository
+            [FromServices] ITipoInsumoRepository repository
         )
         {
             return repository.GetById(id);

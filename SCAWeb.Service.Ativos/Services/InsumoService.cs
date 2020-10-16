@@ -26,39 +26,30 @@ namespace SCAWeb.Service.Ativos.Services
             if (insumoEntity.Invalid)
                 return new ServiceActionResult(false, "Algo deu errado ao incluir!", insumoEntity.Notifications);
 
-            var tipoInsumo = _tipoInsumoRepository.GetById(insumoEntity.tipo_insumo);
+            var insumo = new InsumoEntity
+            (
+                insumoEntity.descricao_insumo,
+                insumoEntity.status_insumo,
+                insumoEntity.data_aquisicao.AddDays(insumoEntity.qtd_dias_manut_prev),
+                insumoEntity.data_aquisicao,
+                DateTime.Now,
+                insumoEntity.qtd_dias_manut_prev,
+                insumoEntity.tipo_insumo,
+                insumoEntity.fornec_insumo,
+                insumoEntity.user
+            );
 
-            if (tipoInsumo != null)
-            {
-                var insumo = new InsumoEntity
-                (
-                    insumoEntity.descricao_insumo,
-                    insumoEntity.status_insumo,
-                    insumoEntity.data_aquisicao.AddDays(tipoInsumo.qtd_dias_manut_prev), //data_manut_prev só será mostrado para alterar na edição
-                    insumoEntity.data_aquisicao,
-                    DateTime.Now,
-                    tipoInsumo.qtd_dias_manut_prev,
-                    insumoEntity.tipo_insumo,
-                    insumoEntity.fornec_insumo,
-                    insumoEntity.user
-                );
+            _insumoRepository.Create(insumo);
 
-                _insumoRepository.Create(insumo);
-
-                return new ServiceActionResult(true, "Insumo criado!", insumo);
-            }
-
-            return new ServiceActionResult(false, "Algo deu errado", null);
+            return new ServiceActionResult(true, "Insumo criado!", insumo);
         }
 
-        public IServiceActionResult DeleteInsumo(InsumoEntity insumoEntity)
+        public IServiceActionResult DeleteInsumo(Guid id)
         {
-            insumoEntity.Validate();
+            var insumo = _insumoRepository.GetById(id);
 
-            if (insumoEntity.Invalid)
-                return new ServiceActionResult(false, "Algo deu errado ao excluir!", insumoEntity.Notifications);
-
-            var insumo = _insumoRepository.GetById(insumoEntity.Id);
+            if (insumo == null)
+                return new ServiceActionResult(false, "O registro que você está excluindo não existe!", null);
 
             _insumoRepository.Delete(insumo);
 
@@ -73,6 +64,9 @@ namespace SCAWeb.Service.Ativos.Services
                 return new ServiceActionResult(false, "Algo deu errado ao editar!", insumoEntity.Notifications);
 
             var insumo = _insumoRepository.GetById(insumoEntity.Id);
+
+            if (insumo == null)
+                return new ServiceActionResult(false, "O registro que você está editando não existe!", null);
 
             insumo.UpdateInsumo
             (

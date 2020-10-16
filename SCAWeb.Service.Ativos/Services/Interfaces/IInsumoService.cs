@@ -1,5 +1,6 @@
 ﻿using SCAWeb.Service.Ativos.Entities;
 using SCAWeb.Service.Ativos.Util.Interfaces;
+using System;
 
 namespace SCAWeb.Service.Ativos.Services.Interfaces
 {
@@ -7,6 +8,6 @@ namespace SCAWeb.Service.Ativos.Services.Interfaces
     {
         IServiceActionResult CreateInsumo(InsumoEntity insumo);
         IServiceActionResult UpdateInsumo(InsumoEntity insumo);
-        IServiceActionResult DeleteInsumo(InsumoEntity insumo);
+        IServiceActionResult DeleteInsumo(Guid id);
     }
 }

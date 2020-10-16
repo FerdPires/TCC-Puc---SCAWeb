@@ -1,5 +1,6 @@
 ﻿using SCAWeb.Service.Ativos.Entities;
 using SCAWeb.Service.Ativos.Util.Interfaces;
+using System;
 
 namespace SCAWeb.Service.Ativos.Services.Interfaces
 {
@@ -7,6 +8,6 @@ namespace SCAWeb.Service.Ativos.Services.Interfaces
     {
         IServiceActionResult CreateFornecedor(FornecedorEntity fornecedor);
         IServiceActionResult UpdateFornecedor(FornecedorEntity fornecedor);
-        IServiceActionResult DeleteFornecedor(FornecedorEntity fornecedor);
+        IServiceActionResult DeleteFornecedor(Guid id);
     }
 }

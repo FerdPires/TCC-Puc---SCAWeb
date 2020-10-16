@@ -34,8 +34,6 @@ namespace SCAWeb.Service.Ativos.Data
             modelBuilder.Entity<TipoInsumoEntity>().HasKey(x => x.Id);
             modelBuilder.Entity<TipoInsumoEntity>().Property(x => x.user).HasMaxLength(50).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<TipoInsumoEntity>().Property(x => x.descricao_tp_insumo).HasMaxLength(100).HasColumnType("varchar(100)").IsRequired();
-            modelBuilder.Entity<TipoInsumoEntity>().Property(x => x.status).HasColumnType("bit").IsRequired();
-            modelBuilder.Entity<TipoInsumoEntity>().Property(x => x.qtd_dias_manut_prev).IsRequired();
             modelBuilder.Entity<TipoInsumoEntity>().Property(x => x.data_atualizacao).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<TipoInsumoEntity>().HasIndex(b => b.user);
 

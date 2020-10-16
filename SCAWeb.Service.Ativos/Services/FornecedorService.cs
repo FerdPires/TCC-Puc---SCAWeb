@@ -38,14 +38,12 @@ namespace SCAWeb.Service.Ativos.Services
             return new ServiceActionResult(true, "Fornecedor criado!", fornecedor);
         }
 
-        public IServiceActionResult DeleteFornecedor(FornecedorEntity fornecedorEntity)
+        public IServiceActionResult DeleteFornecedor(Guid id)
         {
-            fornecedorEntity.Validate();
+            var fornecedor = _fornecedorRepository.GetById(id);
 
-            if (fornecedorEntity.Invalid)
-                return new ServiceActionResult(false, "Algo deu errado ao excluir!", fornecedorEntity.Notifications);
-
-            var fornecedor = _fornecedorRepository.GetById(fornecedorEntity.Id);
+            if (fornecedor == null)
+                return new ServiceActionResult(false, "O registro que você está excluindo não existe!", null);
 
             _fornecedorRepository.Delete(fornecedor);
 
@@ -60,6 +58,9 @@ namespace SCAWeb.Service.Ativos.Services
                 return new ServiceActionResult(false, "Algo deu errado ao editar!", fornecedorEntity.Notifications);
 
             var fornecedor = _fornecedorRepository.GetById(fornecedorEntity.Id);
+
+            if (fornecedor == null)
+                return new ServiceActionResult(false, "O registro que você está editando não existe!", null);
 
             fornecedor.UpdateFornecedor
             (

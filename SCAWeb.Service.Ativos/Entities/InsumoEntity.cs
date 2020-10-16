@@ -1,4 +1,5 @@
 ﻿using Flunt.Validations;
+using SCAWeb.Service.Ativos.Util.Enums;
 using System;
 
 namespace SCAWeb.Service.Ativos.Entities
@@ -10,7 +11,7 @@ namespace SCAWeb.Service.Ativos.Entities
 
         }
 
-        public InsumoEntity(string descricaoInsumo, string statusInsumo, DateTime dataManutPrev, 
+        public InsumoEntity(string descricaoInsumo, StatusInsumo statusInsumo, DateTime dataManutPrev, 
             DateTime dataAquisicao, DateTime dataAtualizacao, int qtdDiasManutPrev, Guid tipoInsumo, Guid fornecInsumo, string User)
         {
             descricao_insumo = descricaoInsumo;
@@ -25,16 +26,16 @@ namespace SCAWeb.Service.Ativos.Entities
         }
 
         public string descricao_insumo { get; private set; }
-        public string status_insumo { get; private set; }
+        public StatusInsumo status_insumo { get; private set; }
         public DateTime data_manut_prev { get; private set; }
         public DateTime data_aquisicao { get; private set; }
         public DateTime data_atualizacao { get; private set; }
-        public int qtd_dias_manut_prev { get; private set; }
+        public int qtd_dias_manut_prev { get; private set; } //quantos em quantos dias deve ser feita a manutenção deste equipamento
         public Guid tipo_insumo { get; private set; }
         public Guid fornec_insumo { get; private set; }
         public string user { get; private set; }
 
-        public void UpdateInsumo(string descricaoInsumo, string statusInsumo, DateTime dataManutPrev, 
+        public void UpdateInsumo(string descricaoInsumo, StatusInsumo statusInsumo, DateTime dataManutPrev, 
             DateTime dataAtualizacao, string User)
         {
             descricao_insumo = descricaoInsumo;
@@ -50,7 +51,7 @@ namespace SCAWeb.Service.Ativos.Entities
                 new Contract()
                     .Requires()
                     .IsNotNullOrEmpty(descricao_insumo, "Descrição do Insumo", "Favor informar a Descrição do Insumo.")
-                    .IsNotNullOrEmpty(status_insumo, "Status do Insumo", "Favor informar o Status do Insumo.")
+                    .IsNotNull(status_insumo, "Status do Insumo", "Favor informar o Status do Insumo.")
                     .IsNotNull(data_manut_prev, "Manutenção Preventiva", "Favor informar a data da Manutenção Preventiva.")
                     .IsNotNull(data_aquisicao, "Data Aquisição", "A data de aquisição do Insumo não pode ser vazia.")
                     .IsNotNull(data_atualizacao, "Data Atualização", "A data de atualização do Insumo não pode ser vazia.")

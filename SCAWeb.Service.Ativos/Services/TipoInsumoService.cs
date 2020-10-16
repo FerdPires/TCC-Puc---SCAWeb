@@ -27,8 +27,7 @@ namespace SCAWeb.Service.Ativos.Services
             var tipoInsumo = new TipoInsumoEntity
             (
                 tipoInsumoEntity.descricao_tp_insumo,
-                tipoInsumoEntity.status, // criar enum
-                tipoInsumoEntity.qtd_dias_manut_prev, //validar essa data!!!! pq o tipo do insumo define os dias de manut do insumo?
+               // tipoInsumoEntity.qtd_dias_manut_prev, //validar essa data!!!! pq o tipo do insumo define os dias de manut do insumo?
                 DateTime.Now,
                 tipoInsumoEntity.user
             );
@@ -38,18 +37,16 @@ namespace SCAWeb.Service.Ativos.Services
             return new ServiceActionResult(true, "Tipo de Insumo criado!", tipoInsumo);
         }
 
-        public IServiceActionResult DeleteTipoInsumo(TipoInsumoEntity tipoInsumoEntity)
+        public IServiceActionResult DeleteTipoInsumo(Guid id)
         {
-            tipoInsumoEntity.Validate();
+            var tipoInsumo = _tipoInsumoRepository.GetById(id);
 
-            if (tipoInsumoEntity.Invalid)
-                return new ServiceActionResult(false, "Algo deu errado ao excluir!", tipoInsumoEntity.Notifications);
+            if (tipoInsumo == null)
+                return new ServiceActionResult(false, "O registro que você está excluindo não existe!", null);
 
-            var insumo = _tipoInsumoRepository.GetById(tipoInsumoEntity.Id);
+            _tipoInsumoRepository.Delete(tipoInsumo);
 
-            _tipoInsumoRepository.Delete(insumo);
-
-            return new ServiceActionResult(true, "Tipo de Insumo excluído!", insumo);
+            return new ServiceActionResult(true, "Tipo de Insumo excluído!", tipoInsumo);
         }
 
         public IServiceActionResult UpdateTipoInsumo(TipoInsumoEntity tipoInsumoEntity)
@@ -61,11 +58,12 @@ namespace SCAWeb.Service.Ativos.Services
 
             var tipoInsumo = _tipoInsumoRepository.GetById(tipoInsumoEntity.Id);
 
+            if (tipoInsumo == null)
+                return new ServiceActionResult(false, "O registro que você está editando não existe!", null);
+
             tipoInsumo.UpdateTipoInsumo
             (
                 tipoInsumoEntity.descricao_tp_insumo,
-                tipoInsumoEntity.status,
-                tipoInsumoEntity.qtd_dias_manut_prev,
                 DateTime.Now,
                 tipoInsumoEntity.user
             );
