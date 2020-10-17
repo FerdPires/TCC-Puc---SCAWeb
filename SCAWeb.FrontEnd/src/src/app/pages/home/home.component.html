@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav mr-auto">
+
+      </div>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="selected"
+          [routerLinkActiveOptions]="{exact: true}">Home</a>
+          <a class="nav-item nav-link" routerLink="/teste" routerLinkActive="selected">Teste APIs</a>
+        <!-- <a class="nav-item nav-link" routerLink="/new-leilao" routerLinkActive="selected">Criar Leilão</a>
+        <a class="nav-item nav-link" routerLink="/user-leiloes" routerLinkActive="selected">Meus Leilões</a>
+        <a class="nav-item nav-link" routerLink="/list-leiloes" routerLinkActive="selected">Listar Leilões</a> -->
+        <a class="nav-item nav-link" (click)="logout()">Sair</a>
+      </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="container">
+</div>
+  
