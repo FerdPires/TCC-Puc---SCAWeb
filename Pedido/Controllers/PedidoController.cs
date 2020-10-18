@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Pedido.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+    [Route("api/[controller]")]
     public class PedidoController : ControllerBase
     {
         // GET api/values
@@ -23,20 +24,31 @@ namespace Pedido.Controllers
         [AllowAnonymous]
         public string Anonymous() => "Anônimo";
 
-        [HttpGet]
         [Route("authenticated")]
+        [HttpGet]
         [Authorize]
-        public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);
+        public IEnumerable<string> Authenticated()
+        {
+            return new[] { "Autenticado - " + User.Identity.Name };
+        }
+
+        //=> String.Format("Autenticado - {0}", User.Identity.Name);
 
         [HttpGet]
         [Route("employee")]
         [Authorize(Roles = "admin,user")]
-        public string Employee() => "Funcionário";
+        public IEnumerable<string> Employee()
+        {
+            return new[] { "Funcionário - " + User.Identity.Name };
+        }
 
         [HttpGet]
         [Route("manager")]
         [Authorize(Roles = "Admin")]
-        public string Manager() => "Gerente";
+        public IEnumerable<string> Manager()
+        {
+            return new[] { "Gerente - " + User.Identity.Name };
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]

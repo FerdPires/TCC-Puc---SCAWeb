@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SCAWeb.Auth.Infrastructure;
+using SCAWeb.Auth.Models;
 using SCAWeb.Auth.Repositories;
 
 namespace SCAWeb.Auth.Controllers
@@ -48,7 +49,7 @@ namespace SCAWeb.Auth.Controllers
             var role = _userService.GetUserRole(request.UserName);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name,request.UserName),
+                new Claim(ClaimTypes.Name, request.UserName),
                 new Claim(ClaimTypes.Role, role)
             };
 
@@ -186,46 +187,5 @@ namespace SCAWeb.Auth.Controllers
                 RefreshToken = jwtResult.RefreshToken.TokenString
             });
         }
-    }
-
-    public class LoginRequest
-    {
-        [Required]
-        [JsonPropertyName("username")]
-        public string UserName { get; set; }
-
-        [Required]
-        [JsonPropertyName("password")]
-        public string Password { get; set; }
-    }
-
-    public class LoginResult
-    {
-        [JsonPropertyName("username")]
-        public string UserName { get; set; }
-
-        [JsonPropertyName("role")]
-        public string Role { get; set; }
-
-        [JsonPropertyName("originalUserName")]
-        public string OriginalUserName { get; set; }
-
-        [JsonPropertyName("accessToken")]
-        public string AccessToken { get; set; }
-
-        [JsonPropertyName("refreshToken")]
-        public string RefreshToken { get; set; }
-    }
-
-    public class RefreshTokenRequest
-    {
-        [JsonPropertyName("refreshToken")]
-        public string RefreshToken { get; set; }
-    }
-
-    public class ImpersonationRequest
-    {
-        [JsonPropertyName("username")]
-        public string UserName { get; set; }
     }
 }

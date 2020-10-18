@@ -9,10 +9,9 @@
           "Port": 44352
         }
       ],
-      "UpstreamPathTemplate": "/login",
+      "UpstreamPathTemplate": "/account/login",
       "UpstreamHttpMethod": [ "Post" ]
     },
-
     {
       "DownstreamPathTemplate": "/api/account/logout",
       "DownstreamScheme": "https",
@@ -22,8 +21,44 @@
           "Port": 44352
         }
       ],
-      "UpstreamPathTemplate": "/logout",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamPathTemplate": "/account/logout",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/account/user",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44352
+        }
+      ],
+      "UpstreamPathTemplate": "/account/user",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/account/refresh-token",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44352
+        }
+      ],
+      "UpstreamPathTemplate": "/account/refresh-token",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     ////////////////////
     {
@@ -48,7 +83,11 @@
         }
       ],
       "UpstreamPathTemplate": "/authenticated",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/pedido/employee",
@@ -60,7 +99,11 @@
         }
       ],
       "UpstreamPathTemplate": "/employee",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/pedido/manager",
@@ -72,7 +115,11 @@
         }
       ],
       "UpstreamPathTemplate": "/manager",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     ///////////////////
     {
@@ -87,7 +134,7 @@
       "UpstreamPathTemplate": "/pedido",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "AuthSchemeKey",
+        "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
     },
@@ -103,7 +150,7 @@
       "UpstreamPathTemplate": "/pedido/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "AuthSchemeKey",
+        "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
     },

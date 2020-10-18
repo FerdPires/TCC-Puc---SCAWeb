@@ -18,7 +18,7 @@ interface LoginResult {
     providedIn: 'root',
 })
 export class AuthService implements OnDestroy {
-    private readonly apiUrl = `${environment.apiUrl}login`;
+    private readonly apiUrl = `${environment.apiUrl}account`;
     private timer: Subscription;
     private _user = new BehaviorSubject<ApplicationUser>(null);
     user$: Observable<ApplicationUser> = this._user.asObservable();
@@ -53,9 +53,10 @@ export class AuthService implements OnDestroy {
     login(username: string, password: string) {
         debugger
         return this.http
-            .post<LoginResult>(`${this.apiUrl}`, { username, password })
+            .post<LoginResult>(`${this.apiUrl}/login`, { username, password })
             .pipe(
                 map((x) => {
+                    debugger
                     this._user.next({
                         username: x.username,
                         role: x.role,
@@ -106,6 +107,7 @@ export class AuthService implements OnDestroy {
     }
 
     setLocalStorage(x: LoginResult) {
+        debugger
         localStorage.setItem('access_token', x.accessToken);
         localStorage.setItem('refresh_token', x.refreshToken);
         localStorage.setItem('login-event', 'login' + Math.random());

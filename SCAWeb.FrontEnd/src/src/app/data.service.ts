@@ -20,8 +20,8 @@ export class DataService {
     }
   }
 
-  public teste() {
-    return this.http.get(`${environment.apiUrl}/authenticated`);
+  public teste(token) {
+    return this.http.get(`${environment.apiUrl}manager`, { headers: this.composeHeaders(token) });
     //return this.http.get(`${this.baseUrl}/v1/leiloes/user`, { headers: this.composeHeaders(token) });
   }
 }

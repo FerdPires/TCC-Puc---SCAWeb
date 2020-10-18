@@ -77,15 +77,15 @@ namespace SCAWeb.Auth
             services.AddSingleton(jwtTokenConfig);
             services.AddAuthentication(x =>
             {
-                x.DefaultAuthenticateScheme = "AuthSchemeKey";
+                x.DefaultAuthenticateScheme = "Bearer";
                 //   x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 //      x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer("AuthSchemeKey", x =>
+            .AddJwtBearer("Bearer", x =>
             {
               //  x.Authority = identityUrl;
-             //   x.RequireHttpsMetadata = false;
-               // x.SaveToken = true;
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -120,6 +120,12 @@ namespace SCAWeb.Auth
                 });
             });
             #endregion
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -132,6 +138,7 @@ namespace SCAWeb.Auth
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("AllowAll");
 
             //app.UseCors(x => x
             //    .AllowAnyOrigin()

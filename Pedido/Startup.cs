@@ -29,11 +29,11 @@ namespace Pedido
 
             services.AddAuthentication(x =>
             {
-                x.DefaultAuthenticateScheme = "AuthSchemeKey";
+                x.DefaultAuthenticateScheme = "Bearer";
                 //   x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 //      x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer("AuthSchemeKey", x =>
+            .AddJwtBearer("Bearer", x =>
             {
                 //  x.Authority = identityUrl;
                 x.RequireHttpsMetadata = false;

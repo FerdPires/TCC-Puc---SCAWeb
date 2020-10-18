@@ -29,9 +29,9 @@ namespace SCAWeb.Service.Ativos
 
             services.AddAuthentication(x =>
             {
-                x.DefaultAuthenticateScheme = "AuthSchemeKey";
+                x.DefaultAuthenticateScheme = "Bearer";
             })
-            .AddJwtBearer("AuthSchemeKey", x =>
+            .AddJwtBearer("Bearer", x =>
             {
                 x.RequireHttpsMetadata = false;
                 x.TokenValidationParameters = new TokenValidationParameters

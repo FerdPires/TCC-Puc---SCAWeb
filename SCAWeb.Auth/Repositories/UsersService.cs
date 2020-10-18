@@ -43,7 +43,10 @@ namespace SCAWeb.Auth.Repositories
                 return false;
             }
 
-            return _users.TryGetValue(userName, out var p) && p == password;
+            var user = UserRepository.Get(userName, password);
+
+            return user != null ? true : false;
+           // return _users.TryGetValue(userName, out var p) && p == password;
         }
 
         public bool IsAnExistingUser(string userName)
@@ -53,6 +56,8 @@ namespace SCAWeb.Auth.Repositories
 
         public string GetUserRole(string userName)
         {
+          //  var user = UserRepository.Get(userName, password);
+
             if (!IsAnExistingUser(userName))
             {
                 return string.Empty;

@@ -52,16 +52,18 @@ namespace SCAWeb.Gateway
             //     //   ValidAudience = Configuration["Jwt:Issuer"],
             //    };
             //});
+            var jwtTokenConfig = Configuration.GetSection("jwtTokenConfig").Get<JwtTokenConfig>();
+            services.AddSingleton(jwtTokenConfig);
 
             services.AddAuthentication(options =>
             {
-                options.DefaultAuthenticateScheme = "AuthSchemeKey";
+                options.DefaultAuthenticateScheme = "Bearer";
             })
-            .AddJwtBearer("AuthSchemeKey", options =>
+            .AddJwtBearer("Bearer", options =>
             {
                 // x.Authority = identityUrl;
                 options.RequireHttpsMetadata = false;
-              //  options.SaveToken = true;
+                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuer = true,
@@ -99,6 +101,12 @@ namespace SCAWeb.Gateway
             //    };
             //});
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
+            });
+
             services.AddOcelot();
         }
 
@@ -109,7 +117,10 @@ namespace SCAWeb.Gateway
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
+            app.UseCors("AllowAll");
 
             app.UseAuthentication();
             app.UseAuthorization();
