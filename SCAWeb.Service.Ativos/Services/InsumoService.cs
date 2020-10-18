@@ -30,12 +30,11 @@ namespace SCAWeb.Service.Ativos.Services
             (
                 insumoEntity.descricao_insumo,
                 insumoEntity.status_insumo,
-                insumoEntity.data_aquisicao.AddDays(insumoEntity.qtd_dias_manut_prev),
                 insumoEntity.data_aquisicao,
                 DateTime.Now,
                 insumoEntity.qtd_dias_manut_prev,
-                insumoEntity.tipo_insumo,
-                insumoEntity.fornec_insumo,
+                insumoEntity.id_tipo_insumo,
+                insumoEntity.id_fornec_insumo,
                 insumoEntity.user
             );
 
@@ -72,7 +71,7 @@ namespace SCAWeb.Service.Ativos.Services
             (
                 insumoEntity.descricao_insumo,
                 insumoEntity.status_insumo,
-                insumoEntity.data_manut_prev,
+                insumoEntity.qtd_dias_manut_prev,
                 DateTime.Now,
                 insumoEntity.user
             );

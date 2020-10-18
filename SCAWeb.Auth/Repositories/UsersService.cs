@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SCAWeb.Auth.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace SCAWeb.Auth.Repositories
         bool IsAnExistingUser(string userName);
         bool IsValidUserCredentials(string userName, string password);
         string GetUserRole(string userName);
+        User AuthenticateUser(string userName, string password);
     }
 
     public class UserService : IUserService
@@ -69,6 +71,12 @@ namespace SCAWeb.Auth.Repositories
             }
 
             return UserRoles.BasicUser;
+        }
+        public User AuthenticateUser(string userName, string password)
+        {
+            var user = UserRepository.Get(userName, password);
+
+            return user;
         }
     }
 

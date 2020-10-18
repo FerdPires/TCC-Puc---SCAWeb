@@ -41,12 +41,18 @@ namespace SCAWeb.Auth.Controllers
                 return BadRequest();
             }
 
-            if (!_userService.IsValidUserCredentials(request.UserName, request.Password))
-            {
-                return Unauthorized();
-            }
+            //if (!_userService.IsValidUserCredentials(request.UserName, request.Password))
+            //{
+            //    return Unauthorized();
+            //}
 
-            var role = _userService.GetUserRole(request.UserName);
+            var user = _userService.AuthenticateUser(request.UserName, request.Password);
+
+            if(user == null)
+                return Unauthorized();
+
+            //  var role = _userService.GetUserRole(request.UserName);
+            var role = user.Role;
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, request.UserName),

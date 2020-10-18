@@ -11,38 +11,37 @@ namespace SCAWeb.Service.Ativos.Entities
 
         }
 
-        public InsumoEntity(string descricaoInsumo, StatusInsumo statusInsumo, DateTime dataManutPrev, 
-            DateTime dataAquisicao, DateTime dataAtualizacao, int qtdDiasManutPrev, Guid tipoInsumo, Guid fornecInsumo, string User)
+        public InsumoEntity(string descricaoInsumo, StatusInsumo statusInsumo, DateTime dataAquisicao, DateTime dataAtualizacao, int qtdDiasManutPrev, Guid tipoInsumo, Guid fornecInsumo, string User)
         {
             descricao_insumo = descricaoInsumo;
             status_insumo = statusInsumo;
-            data_manut_prev = dataManutPrev;
+       //     data_manut_prev = dataManutPrev;
             data_aquisicao = dataAquisicao;
             data_atualizacao = dataAtualizacao;
             qtd_dias_manut_prev = qtdDiasManutPrev;
-            tipo_insumo = tipoInsumo;
-            fornec_insumo = fornecInsumo;
+            id_tipo_insumo = tipoInsumo;
+            id_fornec_insumo = fornecInsumo;
             user = User;
         }
 
         public string descricao_insumo { get; private set; }
         public StatusInsumo status_insumo { get; private set; }
-        public DateTime data_manut_prev { get; private set; }
+      //  public DateTime data_manut_prev { get; private set; } //data calculada, de acordo com qtd_dias_manut_prev. não pode ser modificada
         public DateTime data_aquisicao { get; private set; }
         public DateTime data_atualizacao { get; private set; }
-        public int qtd_dias_manut_prev { get; private set; } //quantos em quantos dias deve ser feita a manutenção deste equipamento
-        public Guid tipo_insumo { get; private set; }
-        public Guid fornec_insumo { get; private set; }
+        public int qtd_dias_manut_prev { get; private set; } 
+        public Guid id_tipo_insumo { get; private set; }
+        public Guid id_fornec_insumo { get; private set; }
         public string user { get; private set; }
 
-        public void UpdateInsumo(string descricaoInsumo, StatusInsumo statusInsumo, DateTime dataManutPrev, 
+        public void UpdateInsumo(string descricaoInsumo, StatusInsumo statusInsumo, int qtdDiasManutPrev, 
             DateTime dataAtualizacao, string User)
         {
             descricao_insumo = descricaoInsumo;
             status_insumo = statusInsumo;
-            data_manut_prev = dataManutPrev;
+            qtd_dias_manut_prev = qtdDiasManutPrev;
             data_atualizacao = dataAtualizacao;
-            user = User;
+            user = User;    
         }
 
         public void Validate()
@@ -52,11 +51,10 @@ namespace SCAWeb.Service.Ativos.Entities
                     .Requires()
                     .IsNotNullOrEmpty(descricao_insumo, "Descrição do Insumo", "Favor informar a Descrição do Insumo.")
                     .IsNotNull(status_insumo, "Status do Insumo", "Favor informar o Status do Insumo.")
-                    .IsNotNull(data_manut_prev, "Manutenção Preventiva", "Favor informar a data da Manutenção Preventiva.")
+                   // .IsNotNull(data_manut_prev, "Manutenção Preventiva", "Favor informar a data da Manutenção Preventiva.")
                     .IsNotNull(data_aquisicao, "Data Aquisição", "A data de aquisição do Insumo não pode ser vazia.")
-                    .IsNotNull(data_atualizacao, "Data Atualização", "A data de atualização do Insumo não pode ser vazia.")
                     .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "A quantidade de dias da Manutenção Preventiva não pode ser vazia.")
-                    .IsLowerOrEqualsThan(data_manut_prev, data_aquisicao.AddDays(qtd_dias_manut_prev), "Manutenção Preventida", "A data da Manutenção preventiva deve ser maior que a informada.")
+                    //.IsLowerOrEqualsThan(data_manut_prev, data_aquisicao.AddDays(qtd_dias_manut_prev), "Manutenção Preventida", "A data da Manutenção preventiva deve ser maior que a informada.")
                     .HasMaxLen(descricao_insumo, 100, "Descrição do Insumo", "A Descrição do Insumo deve conter no máximo 100 caracteres.")
             );
         }

@@ -44,7 +44,7 @@ namespace Pedido.Controllers
 
         [HttpGet]
         [Route("manager")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public IEnumerable<string> Manager()
         {
             return new[] { "Gerente - " + User.Identity.Name };

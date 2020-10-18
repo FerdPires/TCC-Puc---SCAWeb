@@ -36,8 +36,7 @@ namespace SCAWeb.Service.Ativos.Entities
                 new Contract()
                     .Requires()
                     .IsNotNullOrEmpty(descricao_tp_insumo, "Tipo Insumo", "Favor informar o Tipo do Insumo.")
-                    .IsNotNull(data_atualizacao, "Data Atualização", "A data de atualização do Tipo de Insumo não pode ser vazia.")
-                //    .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "Favor informar a quantidade de dias da Manutenção Preventiva.")
+                     //    .IsNotNull(qtd_dias_manut_prev, "Dias Manutenção Preventiva", "Favor informar a quantidade de dias da Manutenção Preventiva.")
                     .HasMaxLen(descricao_tp_insumo, 100, "Tipo Insumo", "O Tipo do Insumo deve conter no máximo 100 caracteres.")
             );
         }
