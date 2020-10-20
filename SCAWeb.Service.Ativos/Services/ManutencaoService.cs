@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Flunt.Notifications;
+using SCAWeb.Service.Ativos.Services.Interfaces;
 
 namespace SCAWeb.Service.Ativos.Services
 {
-    public class ManutencaoService
+    public class ManutencaoService : Notifiable, IManutencaoService
     {
     }
 }

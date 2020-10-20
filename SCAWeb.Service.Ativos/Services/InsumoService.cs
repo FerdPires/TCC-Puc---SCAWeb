@@ -11,12 +11,10 @@ namespace SCAWeb.Service.Ativos.Services
     public class InsumoService : Notifiable, IInsumoService
     {
         private readonly IInsumoRepository _insumoRepository;
-        private readonly ITipoInsumoRepository _tipoInsumoRepository;
 
-        public InsumoService(IInsumoRepository insumoRepository, ITipoInsumoRepository tipoInsumoRepository)
+        public InsumoService(IInsumoRepository insumoRepository)
         {
             _insumoRepository = insumoRepository;
-            _tipoInsumoRepository = tipoInsumoRepository;
         }
 
         public IServiceActionResult CreateInsumo(InsumoEntity insumoEntity)
