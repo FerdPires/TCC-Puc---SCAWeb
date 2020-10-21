@@ -8,6 +8,6 @@ namespace SCAWeb.Service.Ativos.Services.Interfaces
     {
         IServiceActionResult CreateInsumo(InsumoEntity insumo);
         IServiceActionResult UpdateInsumo(InsumoEntity insumo);
-        IServiceActionResult DeleteInsumo(Guid id);
+        IServiceActionResult DeleteInsumo(InsumoEntity id);
     }
 }

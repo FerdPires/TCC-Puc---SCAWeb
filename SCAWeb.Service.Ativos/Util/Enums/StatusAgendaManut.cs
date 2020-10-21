@@ -2,8 +2,7 @@
 {
     public enum StatusAgendaManut : int
     {
-        Agendada = 1,
-        Atrasada = 2,
-        Realizada = 3,
+        Aberto = 1,
+        Fechado = 2
     }
 }

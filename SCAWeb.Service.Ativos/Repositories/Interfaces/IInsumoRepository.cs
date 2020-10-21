@@ -8,8 +8,11 @@ namespace SCAWeb.Service.Ativos.Repositories.Interfaces
     {
         void Create(InsumoEntity insumo);
         void Update(InsumoEntity insumo);
-        void Delete(InsumoEntity insumo);
+    //    void Delete(InsumoEntity insumo);
         InsumoEntity GetById(Guid id);
         IList<InsumoEntity> GetAll();
+        IList<InsumoEntity> GetAllEmManutencao();
+        IList<InsumoEntity> GetAllAtivos();
+        IList<InsumoEntity> GetAllInativos();
     }
 }

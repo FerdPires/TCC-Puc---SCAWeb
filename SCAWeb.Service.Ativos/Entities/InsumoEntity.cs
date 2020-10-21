@@ -44,6 +44,13 @@ namespace SCAWeb.Service.Ativos.Entities
             user = User;    
         }
 
+        public void DisableInsumo(DateTime dataAtualizacao, string User)
+        {
+            status_insumo = StatusInsumo.Inativo;
+            data_atualizacao = dataAtualizacao;
+            user = User;    
+        }
+
         public void Validate()
         {
             AddNotifications(

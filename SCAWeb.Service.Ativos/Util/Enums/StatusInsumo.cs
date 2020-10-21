@@ -4,7 +4,6 @@
     {
         Ativo = 1,
         Inativo = 2,
-        Manutencao_Preventiva = 3,
-        Manutencao_Corretiva = 4
+        Manutencao = 3
     }
 }

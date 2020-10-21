@@ -37,17 +37,15 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.UpdateInsumo(insumo);
         }
 
-        [Route("{id}")]
+        [Route("")]
         [HttpDelete]
         public IServiceActionResult Delete(
-            Guid id,
+           [FromBody] InsumoEntity insumo,
            [FromServices] IInsumoService service
         )
         {
-          //  var insumo = new InsumoEntity();
-
             //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
-            return (ServiceActionResult)service.DeleteInsumo(id);
+            return (ServiceActionResult)service.DeleteInsumo(insumo);
         }
 
         [Route("all")]
@@ -67,6 +65,33 @@ namespace SCAWeb.Service.Ativos.Controllers
         )
         {
             return repository.GetById(id);
+        }
+
+        [Route("{em-manutencao}")]
+        [HttpGet]
+        public IList<InsumoEntity> GetAllEmManutencao(
+            [FromServices] IInsumoRepository repository
+        )
+        {
+            return repository.GetAllEmManutencao();
+        }
+
+        [Route("{all-ativos}")]
+        [HttpGet]
+        public IList<InsumoEntity> GetAllAtivos(
+            [FromServices] IInsumoRepository repository
+        )
+        {
+            return repository.GetAllAtivos();
+        }
+
+        [Route("{all-inativos}")]
+        [HttpGet]
+        public IList<InsumoEntity> GetAllInativos(
+            [FromServices] IInsumoRepository repository
+        )
+        {
+            return repository.GetAllInativos();
         }
     }
 }

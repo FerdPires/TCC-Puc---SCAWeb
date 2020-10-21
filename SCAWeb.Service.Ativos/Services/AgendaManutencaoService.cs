@@ -38,10 +38,10 @@ namespace SCAWeb.Service.Ativos.Services
             var agendaManut = new AgendaManutencaoEntity
             (
                 TipoManutencao.Corretiva,
-                StatusAgendaManut.Agendada,
+                StatusAgendaManut.Aberto,
                 agendaManutEntity.data_manutencao,
                 DateTime.Now,
-                agendaManutEntity.id_insumo,
+                insumo.Id,
                 agendaManutEntity.user
             );
 
@@ -55,7 +55,7 @@ namespace SCAWeb.Service.Ativos.Services
             var agendaManut = new AgendaManutencaoEntity
             (
                 TipoManutencao.Preventiva,
-                StatusAgendaManut.Agendada,
+                StatusAgendaManut.Aberto,
                 insumo.data_aquisicao.AddDays(insumo.qtd_dias_manut_prev),
                 DateTime.Now,
                 insumo.Id,
@@ -110,25 +110,25 @@ namespace SCAWeb.Service.Ativos.Services
             return new ServiceActionResult(true, "Agendamento salvo!", agendaManut);
         }
 
-        public IServiceActionResult UpdateAgendaManutencaoPreventiva(ManutencaoEntity manutencaoEntity)
-        {
-            var insumo = _insumoRepository.GetById(manutencaoEntity.Id);
-            var agendaManut = _agendaManutRepository.GetById(manutencaoEntity.Id);
+        //public IServiceActionResult UpdateAgendaManutencaoPreventiva(ManutencaoEntity manutencaoEntity)
+        //{
+        //    var insumo = _insumoRepository.GetById(manutencaoEntity.Id);
+        //    var agendaManut = _agendaManutRepository.GetById(manutencaoEntity.Id);
 
-            if (agendaManut == null || insumo == null)
-                return new ServiceActionResult(false, "Ocorreu algum erro ao localizar os dados para novo agendamento de manutenção preventiva.", null);
+        //    if (agendaManut == null || insumo == null)
+        //        return new ServiceActionResult(false, "Ocorreu algum erro ao localizar os dados para novo agendamento de manutenção preventiva.", null);
 
-            agendaManut.UpdateAgendaManut
-            (
-                StatusAgendaManut.Agendada,
-                manutencaoEntity.data_fim.AddDays(insumo.qtd_dias_manut_prev),
-                DateTime.Now,
-                insumo.user
-            );
+        //    agendaManut.UpdateAgendaManut
+        //    (
+        //        StatusAgendaManut.Agendada,
+        //        manutencaoEntity.data_fim.AddDays(insumo.qtd_dias_manut_prev),
+        //        DateTime.Now,
+        //        insumo.user
+        //    );
 
-            _agendaManutRepository.Update(agendaManut);
+        //    _agendaManutRepository.Update(agendaManut);
 
-            return new ServiceActionResult(true, "Agendamento salvo!", agendaManut);
-        }
+        //    return new ServiceActionResult(true, "Agendamento salvo!", agendaManut);
+        //}
     }
 }

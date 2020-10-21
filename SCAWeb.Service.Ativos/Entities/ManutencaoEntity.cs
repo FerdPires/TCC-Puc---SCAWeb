@@ -12,13 +12,13 @@ namespace SCAWeb.Service.Ativos.Entities
         }
 
         public ManutencaoEntity(TipoManutencao tipoManutencao, string descricaoManutencao, StatusManutencao statusManutencao, 
-            DateTime dataInicio, DateTime dataFim, Guid idInsumo, string User)
+            DateTime dataInicio, Guid idInsumo, string User)
         {
             tipo_manutencao = tipoManutencao;
             descricao_manutencao = descricaoManutencao;
             status_manutencao = statusManutencao;
             data_inicio = dataInicio;
-            data_fim = dataFim;
+       //     data_fim = dataFim;
             id_insumo = idInsumo;
             user = User;
         }

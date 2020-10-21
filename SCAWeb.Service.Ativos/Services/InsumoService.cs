@@ -3,6 +3,7 @@ using SCAWeb.Service.Ativos.Entities;
 using SCAWeb.Service.Ativos.Repositories.Interfaces;
 using SCAWeb.Service.Ativos.Services.Interfaces;
 using SCAWeb.Service.Ativos.Util;
+using SCAWeb.Service.Ativos.Util.Enums;
 using SCAWeb.Service.Ativos.Util.Interfaces;
 using System;
 
@@ -11,10 +12,12 @@ namespace SCAWeb.Service.Ativos.Services
     public class InsumoService : Notifiable, IInsumoService
     {
         private readonly IInsumoRepository _insumoRepository;
+        private readonly IAgendaManutencaoRepository _agendaManutRepository;      
 
-        public InsumoService(IInsumoRepository insumoRepository)
+        public InsumoService(IInsumoRepository insumoRepository, IAgendaManutencaoRepository agendaManutRepository)
         {
             _insumoRepository = insumoRepository;
+            _agendaManutRepository = agendaManutRepository;
         }
 
         public IServiceActionResult CreateInsumo(InsumoEntity insumoEntity)
@@ -38,17 +41,38 @@ namespace SCAWeb.Service.Ativos.Services
 
             _insumoRepository.Create(insumo);
 
+            if(insumo.Id != null)
+            {
+                var agendaManut = new AgendaManutencaoEntity
+                (
+                    TipoManutencao.Preventiva,
+                    StatusAgendaManut.Aberto,
+                    insumo.data_aquisicao.AddDays(insumo.qtd_dias_manut_prev),
+                    DateTime.Now,
+                    insumo.Id,
+                    insumo.user
+                );
+
+                _agendaManutRepository.AgendaManutencaoCreate(agendaManut);
+            }
+
             return new ServiceActionResult(true, "Insumo criado!", insumo);
         }
 
-        public IServiceActionResult DeleteInsumo(Guid id)
+        public IServiceActionResult DeleteInsumo(InsumoEntity insumoEntity)
         {
-            var insumo = _insumoRepository.GetById(id);
+            var insumo = _insumoRepository.GetById(insumoEntity.Id);
 
             if (insumo == null)
-                return new ServiceActionResult(false, "O registro que você está excluindo não existe!", null);
+                return new ServiceActionResult(false, "O registro que você está tentando desativar não existe!", null);
 
-            _insumoRepository.Delete(insumo);
+            insumo.DisableInsumo
+            (
+                DateTime.Now,
+                insumoEntity.user
+            );
+
+            _insumoRepository.Update(insumo);
 
             return new ServiceActionResult(true, "Insumo excluído!", insumo);
         }
@@ -75,6 +99,9 @@ namespace SCAWeb.Service.Ativos.Services
             );
 
             _insumoRepository.Update(insumo);
+
+            if(insumoEntity.status_insumo == StatusInsumo.Inativo)
+                return new ServiceActionResult(true, "Insumo desativado!", insumo);
 
             return new ServiceActionResult(true, "Insumo salvo!", insumo);
         }

@@ -2,6 +2,7 @@
 using SCAWeb.Service.Ativos.Data;
 using SCAWeb.Service.Ativos.Entities;
 using SCAWeb.Service.Ativos.Repositories.Interfaces;
+using SCAWeb.Service.Ativos.Util.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,11 @@ namespace SCAWeb.Service.Ativos.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(InsumoEntity insumo)
-        {
-            _context.Insumos.Remove(insumo);
-            _context.SaveChanges();
-        }
+        //public void Delete(InsumoEntity insumo)
+        //{
+        //    _context.Insumos.Remove(insumo);
+        //    _context.SaveChanges();
+        //}
 
         public IList<InsumoEntity> GetAll()
         {
@@ -43,6 +44,24 @@ namespace SCAWeb.Service.Ativos.Repositories
         {
             _context.Entry(insumo).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+
+        public IList<InsumoEntity> GetAllEmManutencao()
+        {
+            return _context.Insumos.AsNoTracking().Where(x => x.status_insumo == StatusInsumo.Manutencao)
+                .OrderBy(x => x.descricao_insumo).ToList();
+        }
+
+        public IList<InsumoEntity> GetAllAtivos()
+        {
+            return _context.Insumos.AsNoTracking().Where(x => x.status_insumo == StatusInsumo.Ativo)
+                .OrderBy(x => x.descricao_insumo).ToList();
+        }
+
+        public IList<InsumoEntity> GetAllInativos()
+        {
+            return _context.Insumos.AsNoTracking().Where(x => x.status_insumo == StatusInsumo.Inativo)
+                .OrderBy(x => x.descricao_insumo).ToList();
         }
     }
 }
