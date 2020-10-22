@@ -15,7 +15,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     [Authorize]
     public class InsumoController : ControllerBase
     {
-        [Route("")]
+        [Route("criar")]
         [HttpPost]
         public IServiceActionResult Create(
             [FromBody] InsumoEntity insumo, 
@@ -26,7 +26,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.CreateInsumo(insumo);
         }
 
-        [Route("")]
+        [Route("editar")]
         [HttpPut]
         public IServiceActionResult Update(
            [FromBody] InsumoEntity insumo,
@@ -37,7 +37,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.UpdateInsumo(insumo);
         }
 
-        [Route("")]
+        [Route("excluir")]
         [HttpDelete]
         public IServiceActionResult Delete(
            [FromBody] InsumoEntity insumo,
@@ -48,7 +48,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.DeleteInsumo(insumo);
         }
 
-        [Route("all")]
+        [Route("listar")]
         [HttpGet]
         public IList<InsumoEntity> GetAll(
             [FromServices] IInsumoRepository repository
@@ -57,7 +57,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetAll();
         }
 
-        [Route("{id}")]
+        [Route("obter/{id}")]
         [HttpGet]
         public InsumoEntity GetById(
             Guid id,
@@ -67,7 +67,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetById(id);
         }
 
-        [Route("{em-manutencao}")]
+        [Route("em-manutencao")]
         [HttpGet]
         public IList<InsumoEntity> GetAllEmManutencao(
             [FromServices] IInsumoRepository repository
@@ -76,7 +76,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetAllEmManutencao();
         }
 
-        [Route("{all-ativos}")]
+        [Route("ativos")]
         [HttpGet]
         public IList<InsumoEntity> GetAllAtivos(
             [FromServices] IInsumoRepository repository
@@ -85,7 +85,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetAllAtivos();
         }
 
-        [Route("{all-inativos}")]
+        [Route("inativos")]
         [HttpGet]
         public IList<InsumoEntity> GetAllInativos(
             [FromServices] IInsumoRepository repository

@@ -8,7 +8,7 @@ namespace SCAWeb.Service.Ativos.Services.Interfaces
     {
         IServiceActionResult AgendaManutencaoCorretiva(AgendaManutencaoEntity agendaEntity);
         IServiceActionResult AgendaManutencaoPreventiva(InsumoEntity insumo);
-        IServiceActionResult DeleteAgendaManutencaoCorretiva(Guid id);
+        IServiceActionResult DeleteAgendaManutencaoCorretiva(AgendaManutencaoEntity agendaManutEntity);
         IServiceActionResult UpdateAgendaManutencaoCorretiva(AgendaManutencaoEntity agendaManutEntity);
     }
 }

@@ -15,7 +15,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     [Authorize]
     public class TipoInsumoController : ControllerBase
     {
-        [Route("")]
+        [Route("criar")]
         [HttpPost]
         public IServiceActionResult Create(
             [FromBody] TipoInsumoEntity tipoInsumo,
@@ -26,7 +26,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.CreateTipoInsumo(tipoInsumo);
         }
 
-        [Route("")]
+        [Route("editar")]
         [HttpPut]
         public IServiceActionResult Update(
            [FromBody] TipoInsumoEntity tipoInsumo,
@@ -37,7 +37,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.UpdateTipoInsumo(tipoInsumo);
         }
 
-        [Route("{id}")]
+        [Route("excluir/{id}")]
         [HttpDelete]
         public IServiceActionResult Delete(
             Guid id,
@@ -50,7 +50,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.DeleteTipoInsumo(id);
         }
 
-        [Route("all")]
+        [Route("listar")]
         [HttpGet]
         public IList<TipoInsumoEntity> GetAll(
             [FromServices] ITipoInsumoRepository repository
@@ -59,7 +59,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetAll();
         }
 
-        [Route("{id}")]
+        [Route("obter/{id}")]
         [HttpGet]
         public TipoInsumoEntity GetById(
             Guid id,

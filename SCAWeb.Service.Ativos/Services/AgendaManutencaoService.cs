@@ -67,9 +67,9 @@ namespace SCAWeb.Service.Ativos.Services
             return new ServiceActionResult(true, "Manutenção preventiva agendada!", agendaManut);
         }
 
-        public IServiceActionResult DeleteAgendaManutencaoCorretiva(Guid id)
+        public IServiceActionResult DeleteAgendaManutencaoCorretiva(AgendaManutencaoEntity agendaManutEntity)
         {
-            var agendaManut = _agendaManutRepository.GetById(id);
+            var agendaManut = _agendaManutRepository.GetById(agendaManutEntity.Id);
 
             if (agendaManut == null)
                 return new ServiceActionResult(false, "O agendamento que você está excluindo não existe!", null);

@@ -15,7 +15,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     [Authorize]
     public class FornecedorController : ControllerBase
     {
-        [Route("")]
+        [Route("criar")]
         [HttpPost]
         public IServiceActionResult Create(
             [FromBody] FornecedorEntity fornecedor,
@@ -26,7 +26,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.CreateFornecedor(fornecedor);
         }
 
-        [Route("")]
+        [Route("editar")]
         [HttpPut]
         public IServiceActionResult Update(
            [FromBody] FornecedorEntity fornecedor,
@@ -37,7 +37,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.UpdateFornecedor(fornecedor);
         }
 
-        [Route("{id}")]
+        [Route("excluir/{id}")]
         [HttpDelete]
         public IServiceActionResult Delete(
             Guid id,
@@ -50,7 +50,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return (ServiceActionResult)service.DeleteFornecedor(id);
         }
 
-        [Route("all")]
+        [Route("listar")]
         [HttpGet]
         public IList<FornecedorEntity> GetAll(
             [FromServices] IFornecedorRepository repository
@@ -59,7 +59,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetAll();
         }
 
-        [Route("{id}")]
+        [Route("obter/{id}")]
         [HttpGet]
         public FornecedorEntity GetById(
             Guid id,
@@ -69,7 +69,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             return repository.GetById(id);
         }
 
-        [Route("{cnpj}")]
+        [Route("obter/{cnpj}")]
         [HttpGet]
         public FornecedorEntity GetByCnoj(
             int cnpj,
