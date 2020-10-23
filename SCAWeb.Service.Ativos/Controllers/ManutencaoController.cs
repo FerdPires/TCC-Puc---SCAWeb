@@ -16,6 +16,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     {
         [Route("criar")]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Create(
             [FromBody] ManutencaoEntity manutencao,
             [FromServices] IManutencaoService service
@@ -27,6 +28,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<ManutencaoEntity> GetAll(
             [FromServices] IManutencaoRepository repository
         )
@@ -36,6 +38,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("abertas")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<ManutencaoEntity> GetAllIniciada(
             [FromServices] IManutencaoRepository repository
         )
@@ -45,6 +48,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("concluidas")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<ManutencaoEntity> GetAllConcluida(
             [FromServices] IManutencaoRepository repository
         )
@@ -54,6 +58,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAll(
             [FromServices] IAgendaManutencaoRepository repository
         )
@@ -63,6 +68,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/hoje")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAllToday(
             [FromServices] IAgendaManutencaoRepository repository
         )
@@ -72,6 +78,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/abertas")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAllAberto(
             [FromServices] IAgendaManutencaoRepository repository
         )
@@ -81,6 +88,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/fechadas")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAllFechado(
             [FromServices] IAgendaManutencaoRepository repository
         )

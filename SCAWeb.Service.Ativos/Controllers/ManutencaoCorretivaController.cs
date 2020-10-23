@@ -10,12 +10,13 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/manutencao/corretiva")]
+    [Route("v1/manutencao-corretiva")]
     [Authorize]
     public class ManutencaoCorretivaController : ControllerBase
     {
         [Route("editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult UpdateCorretiva(
             [FromBody] ManutencaoEntity manutencao,
             [FromServices] IManutencaoService service
@@ -27,6 +28,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento")]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Agendar(
             [FromBody] AgendaManutencaoEntity agendaManut,
             [FromServices] IAgendaManutencaoService service
@@ -38,6 +40,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult UpdateAgendar(
            [FromBody] AgendaManutencaoEntity agendaManut,
            [FromServices] IAgendaManutencaoService service
@@ -49,6 +52,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/excluir")]
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult DeleteAgendar(
            [FromBody] AgendaManutencaoEntity agendaManut,
            [FromServices] IAgendaManutencaoService service
@@ -60,6 +64,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAllCorretiva(
             [FromServices] IAgendaManutencaoRepository repository
         )
@@ -69,6 +74,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<ManutencaoEntity> GetAllCorretiva(
             [FromServices] IManutencaoRepository repository
         )

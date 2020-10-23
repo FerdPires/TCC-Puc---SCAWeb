@@ -17,6 +17,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     {
         [Route("criar")]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Create(
             [FromBody] FornecedorEntity fornecedor,
             [FromServices] IFornecedorService service
@@ -28,6 +29,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Update(
            [FromBody] FornecedorEntity fornecedor,
            [FromServices] IFornecedorService service
@@ -39,6 +41,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("excluir/{id}")]
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Delete(
             Guid id,
            [FromServices] IFornecedorService service
@@ -52,6 +55,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<FornecedorEntity> GetAll(
             [FromServices] IFornecedorRepository repository
         )
@@ -61,6 +65,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("obter/{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public FornecedorEntity GetById(
             Guid id,
             [FromServices] IFornecedorRepository repository
@@ -71,7 +76,8 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("obter/{cnpj}")]
         [HttpGet]
-        public FornecedorEntity GetByCnoj(
+        [Authorize(Roles = "admin,user")]
+        public FornecedorEntity GetByCnpj(
             int cnpj,
             [FromServices] IFornecedorRepository repository
         )

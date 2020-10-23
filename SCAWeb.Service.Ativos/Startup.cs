@@ -9,6 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SCAWeb.Service.Ativos.Data;
+using SCAWeb.Service.Ativos.Repositories;
+using SCAWeb.Service.Ativos.Repositories.Interfaces;
+using SCAWeb.Service.Ativos.Services;
+using SCAWeb.Service.Ativos.Services.Interfaces;
 
 namespace SCAWeb.Service.Ativos
 {
@@ -26,6 +30,18 @@ namespace SCAWeb.Service.Ativos
             services.AddControllers();
 
             services.AddDbContext<AtivosContext>(options => options.UseInMemoryDatabase("Database"));
+
+            services.AddTransient<IAgendaManutencaoRepository, AgendaManutencaoRepository>();
+            services.AddTransient<IFornecedorRepository, FornecedorRepository>();
+            services.AddTransient<IInsumoRepository, InsumoRepository>();
+            services.AddTransient<IManutencaoRepository, ManutencaoRepository>();
+            services.AddTransient<ITipoInsumoRepository, TipoInsumoRepository>();
+
+            services.AddTransient<IAgendaManutencaoService, AgendaManutencaoService>();
+            services.AddTransient<IFornecedorService, FornecedorService>();
+            services.AddTransient<IInsumoService, InsumoService>();
+            services.AddTransient<IManutencaoService, ManutencaoService>();
+            services.AddTransient<ITipoInsumoService, TipoInsumoService>();
 
             services.AddAuthentication(x =>
             {
@@ -81,7 +97,7 @@ namespace SCAWeb.Service.Ativos
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pedido");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ativos");
             });
 
             app.UseEndpoints(endpoints =>

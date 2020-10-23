@@ -11,12 +11,13 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/tipoinsumo")]
+    [Route("v1/tipo-insumo")]
     [Authorize]
     public class TipoInsumoController : ControllerBase
     {
         [Route("criar")]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Create(
             [FromBody] TipoInsumoEntity tipoInsumo,
             [FromServices] ITipoInsumoService service
@@ -28,6 +29,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Update(
            [FromBody] TipoInsumoEntity tipoInsumo,
            [FromServices] ITipoInsumoService service
@@ -39,6 +41,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("excluir/{id}")]
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Delete(
             Guid id,
            [FromServices] ITipoInsumoService service
@@ -52,6 +55,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<TipoInsumoEntity> GetAll(
             [FromServices] ITipoInsumoRepository repository
         )
@@ -61,6 +65,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("obter/{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public TipoInsumoEntity GetById(
             Guid id,
             [FromServices] ITipoInsumoRepository repository

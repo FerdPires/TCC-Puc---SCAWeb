@@ -10,12 +10,13 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/manutencao/preventiva")]
+    [Route("v1/manutencao-preventiva")]
     [Authorize]
     public class ManutencaoPreventivaController : ControllerBase
     {
         [Route("editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult UpdatePreventiva(
             [FromBody] ManutencaoEntity manutencao,
             [FromServices] IManutencaoService service
@@ -27,6 +28,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("agendamento/listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<AgendaManutencaoEntity> GetAllPreventiva(
             [FromServices] IAgendaManutencaoRepository repository
         )
@@ -36,6 +38,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<ManutencaoEntity> GetAllPreventiva(
             [FromServices] IManutencaoRepository repository
         )

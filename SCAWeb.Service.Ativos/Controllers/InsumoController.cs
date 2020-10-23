@@ -17,6 +17,7 @@ namespace SCAWeb.Service.Ativos.Controllers
     {
         [Route("criar")]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Create(
             [FromBody] InsumoEntity insumo, 
             [FromServices] IInsumoService service
@@ -28,6 +29,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("editar")]
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Update(
            [FromBody] InsumoEntity insumo,
            [FromServices] IInsumoService service
@@ -39,6 +41,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("excluir")]
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         public IServiceActionResult Delete(
            [FromBody] InsumoEntity insumo,
            [FromServices] IInsumoService service
@@ -50,6 +53,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("listar")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<InsumoEntity> GetAll(
             [FromServices] IInsumoRepository repository
         )
@@ -59,6 +63,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("obter/{id}")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public InsumoEntity GetById(
             Guid id,
             [FromServices] IInsumoRepository repository
@@ -69,6 +74,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("em-manutencao")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<InsumoEntity> GetAllEmManutencao(
             [FromServices] IInsumoRepository repository
         )
@@ -78,6 +84,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("ativos")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<InsumoEntity> GetAllAtivos(
             [FromServices] IInsumoRepository repository
         )
@@ -87,6 +94,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("inativos")]
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public IList<InsumoEntity> GetAllInativos(
             [FromServices] IInsumoRepository repository
         )

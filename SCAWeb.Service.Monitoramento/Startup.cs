@@ -7,6 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SCAWeb.Service.Monitoramento.Data;
+using SCAWeb.Service.Monitoramento.Repositories;
+using SCAWeb.Service.Monitoramento.Repositories.Interfaces;
+using SCAWeb.Service.Monitoramento.Util.Interfaces;
 using System;
 using System.Text;
 
@@ -26,6 +29,10 @@ namespace SCAWeb.Service.Monitoramento
             services.AddControllers();
 
             services.AddDbContext<MonitoramentoContext>(options => options.UseInMemoryDatabase("Database"));
+
+            services.AddTransient<IAlertaSensorRepository, AlertaSensorRepository>();
+            services.AddTransient<IAreaRepository, AreaRepository>();
+            services.AddTransient<ISensorRepository, SensorRepository>();
 
             services.AddAuthentication(x =>
             {
@@ -81,7 +88,7 @@ namespace SCAWeb.Service.Monitoramento
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pedido");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Monitoramento");
             });
 
             app.UseEndpoints(endpoints =>
