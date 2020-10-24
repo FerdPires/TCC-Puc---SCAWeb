@@ -18,9 +18,9 @@ namespace SCAWeb.Service.Monitoramento.Entities
             user = User;
         }
 
-        public TipoAlerta tipo_aletra { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public Guid id_sensor { get; private set; }
-        public string user { get; private set; }
+        public TipoAlerta tipo_aletra { get; set; }
+        public DateTime data_atualizacao { get; set; }
+        public Guid id_sensor { get; set; }
+        public string user { get; set; }
     }
 }

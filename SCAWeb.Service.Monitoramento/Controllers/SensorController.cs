@@ -14,7 +14,7 @@ namespace SCAWeb.Service.Monitoramento.Controllers
     {
         [Route("listar/{id}")]
         [HttpGet]
-        [Authorize(Roles = "admin,user")]
+        [Authorize(Roles = "admin")]
         public IList<SensorEntity> GetAllByArea(
             Guid id,
             [FromServices] ISensorRepository repository

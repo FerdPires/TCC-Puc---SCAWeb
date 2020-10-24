@@ -1,6 +1,7 @@
 ﻿using Flunt.Validations;
 using SCAWeb.Service.Ativos.Util.Enums;
 using System;
+using System.Text.Json.Serialization;
 
 namespace SCAWeb.Service.Ativos.Entities
 {
@@ -24,15 +25,30 @@ namespace SCAWeb.Service.Ativos.Entities
             user = User;
         }
 
-        public string descricao_insumo { get; private set; }
-        public StatusInsumo status_insumo { get; private set; }
-      //  public DateTime data_manut_prev { get; private set; } //data calculada, de acordo com qtd_dias_manut_prev. não pode ser modificada
-        public DateTime data_aquisicao { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public int qtd_dias_manut_prev { get; private set; } 
-        public Guid id_tipo_insumo { get; private set; }
-        public Guid id_fornec_insumo { get; private set; }
-        public string user { get; private set; }
+        [JsonPropertyName("descricao_insumo")]
+        public string descricao_insumo { get; set; }
+
+        [JsonPropertyName("status_insumo")]
+        public StatusInsumo status_insumo { get; set; }
+        //  public DateTime data_manut_prev { get; private set; } //data calculada, de acordo com qtd_dias_manut_prev. não pode ser modificada
+
+        [JsonPropertyName("data_aquisicao")]
+        public DateTime data_aquisicao { get;  set; }
+
+        [JsonPropertyName("data_atualizacao")]
+        public DateTime data_atualizacao { get; set; }
+
+        [JsonPropertyName("qtd_dias_manut_prev")]
+        public int qtd_dias_manut_prev { get; set; }
+
+        [JsonPropertyName("id_tipo_insumo")]
+        public Guid id_tipo_insumo { get; set; }
+
+        [JsonPropertyName("id_fornec_insumo")]
+        public Guid id_fornec_insumo { get; set; }
+
+        [JsonPropertyName("user")]
+        public string user { get; set; }
 
         public void UpdateInsumo(string descricaoInsumo, StatusInsumo statusInsumo, int qtdDiasManutPrev, 
             DateTime dataAtualizacao, string User)

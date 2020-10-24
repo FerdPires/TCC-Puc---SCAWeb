@@ -65,7 +65,7 @@
 
     //*****************Ativos
     {
-      "DownstreamPathTemplate": "v1/fornecedor/criar",
+      "DownstreamPathTemplate": "/v1/fornecedor/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -81,7 +81,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/fornecedor/editar",
+      "DownstreamPathTemplate": "/v1/fornecedor/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -97,7 +97,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/fornecedor/excluir",
+      "DownstreamPathTemplate": "/v1/fornecedor/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -113,7 +113,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/fornecedor/listar",
+      "DownstreamPathTemplate": "/v1/fornecedor/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -129,7 +129,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/fornecedor/obter",
+      "DownstreamPathTemplate": "/v1/fornecedor/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -145,7 +145,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/criar",
+      "DownstreamPathTemplate": "/v1/insumo/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -161,7 +161,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/editar",
+      "DownstreamPathTemplate": "/v1/insumo/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -177,7 +177,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/excluir",
+      "DownstreamPathTemplate": "/v1/insumo/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -193,7 +193,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/listar",
+      "DownstreamPathTemplate": "/v1/insumo/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -209,7 +209,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/obter",
+      "DownstreamPathTemplate": "/v1/insumo/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -225,7 +225,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/em-manutencao",
+      "DownstreamPathTemplate": "/v1/insumo/em-manutencao",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -241,7 +241,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/ativos",
+      "DownstreamPathTemplate": "/v1/insumo/ativos",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -257,7 +257,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/insumo/inativos",
+      "DownstreamPathTemplate": "/v1/insumo/inativos",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -273,7 +273,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/tipo-insumo/criar",
+      "DownstreamPathTemplate": "/v1/tipo-insumo/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -289,7 +289,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/tipo-insumo/editar",
+      "DownstreamPathTemplate": "/v1/tipo-insumo/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -305,7 +305,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/tipo-insumo/excluir",
+      "DownstreamPathTemplate": "/v1/tipo-insumo/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -321,7 +321,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/tipo-insumo/listar",
+      "DownstreamPathTemplate": "/v1/tipo-insumo/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -337,7 +337,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/tipo-insumo/obter",
+      "DownstreamPathTemplate": "/v1/tipo-insumo/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -353,7 +353,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/criar",
+      "DownstreamPathTemplate": "/v1/manutencao/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -369,7 +369,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/listar",
+      "DownstreamPathTemplate": "/v1/manutencao/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -385,7 +385,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/abertas",
+      "DownstreamPathTemplate": "/v1/manutencao/abertas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -401,7 +401,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/concluidas",
+      "DownstreamPathTemplate": "/v1/manutencao/concluidas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -417,7 +417,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/agendamento/listar",
+      "DownstreamPathTemplate": "/v1/manutencao/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -433,7 +433,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/agendamento/hoje",
+      "DownstreamPathTemplate": "/v1/manutencao/agendamento/hoje",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -449,7 +449,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/agendamento/abertas",
+      "DownstreamPathTemplate": "/v1/manutencao/agendamento/abertas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -465,7 +465,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao/agendamento/fechadas",
+      "DownstreamPathTemplate": "/v1/manutencao/agendamento/fechadas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -481,7 +481,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/editar",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -497,7 +497,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/agendamento",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -513,7 +513,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/agendamento/editar",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -529,7 +529,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/agendamento/excluir",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -545,7 +545,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/agendamento/listar",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -561,7 +561,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-corretiva/listar",
+      "DownstreamPathTemplate": "/v1/manutencao-corretiva/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -577,7 +577,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-preventiva/editar",
+      "DownstreamPathTemplate": "/v1/manutencao-preventiva/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -593,7 +593,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-preventiva/agendamento/listar",
+      "DownstreamPathTemplate": "/v1/manutencao-preventiva/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -609,7 +609,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/manutencao-preventiva/listar",
+      "DownstreamPathTemplate": "/v1/manutencao-preventiva/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -628,7 +628,7 @@
 
     //*****************Monitoramento
     {
-      "DownstreamPathTemplate": "v1/area/listar",
+      "DownstreamPathTemplate": "/v1/area/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -644,7 +644,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/area/obter",
+      "DownstreamPathTemplate": "/v1/area/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -660,7 +660,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/sensor/listar",
+      "DownstreamPathTemplate": "/v1/sensor/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -676,7 +676,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/sensor/obter",
+      "DownstreamPathTemplate": "/v1/sensor/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -692,7 +692,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/alerta/listar",
+      "DownstreamPathTemplate": "/v1/alerta/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -708,7 +708,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "v1/alerta/obter",
+      "DownstreamPathTemplate": "/v1/alerta/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

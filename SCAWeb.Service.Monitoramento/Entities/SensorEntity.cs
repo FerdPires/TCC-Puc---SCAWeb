@@ -19,10 +19,10 @@ namespace SCAWeb.Service.Monitoramento.Entities
             user = User;
         }
 
-        public string nome_sensor { get; private set; }
-        public Status status_sensor { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public Guid id_area { get; private set; }
-        public string user { get; private set; }
+        public string nome_sensor { get; set; }
+        public Status status_sensor { get; set; }
+        public DateTime data_atualizacao { get; set; }
+        public Guid id_area { get; set; }
+        public string user { get; set; }
     }
 }

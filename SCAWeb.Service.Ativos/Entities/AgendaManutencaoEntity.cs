@@ -21,12 +21,12 @@ namespace SCAWeb.Service.Ativos.Entities
             id_insumo = idInsumo;
             user = User;
         }
-        public TipoManutencao tipo_manutencao { get; private set; } 
-        public StatusAgendaManut status_agenda { get; private set; }
-        public DateTime data_manutencao { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public Guid id_insumo { get; private set; }
-        public string user { get; private set; }
+        public TipoManutencao tipo_manutencao { get; set; } 
+        public StatusAgendaManut status_agenda { get; set; }
+        public DateTime data_manutencao { get; set; }
+        public DateTime data_atualizacao { get; set; }
+        public Guid id_insumo { get; set; }
+        public string user { get; set; }
 
         public void UpdateAgendaManut(StatusAgendaManut statusAgenda, DateTime dataManutencao, DateTime dataAtualizacao, string User)
         {

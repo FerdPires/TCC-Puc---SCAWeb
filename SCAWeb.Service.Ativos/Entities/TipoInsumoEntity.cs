@@ -18,10 +18,10 @@ namespace SCAWeb.Service.Ativos.Entities
             user = User;
         }
 
-        public string descricao_tp_insumo { get; private set; }
+        public string descricao_tp_insumo { get; set; }
        // public int qtd_dias_manut_prev { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public string user { get; private set; }
+        public DateTime data_atualizacao { get; set; }
+        public string user { get; set; }
 
         public void UpdateTipoInsumo(string descricaoTpInsumo, DateTime dataAtualizacao, string User)
         {

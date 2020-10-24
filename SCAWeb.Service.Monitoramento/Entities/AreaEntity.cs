@@ -16,8 +16,8 @@ namespace SCAWeb.Service.Monitoramento.Entities
             user = User;
         }
 
-        public string nome_barragem { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public string user { get; private set; }
+        public string nome_barragem { get; set; }
+        public DateTime data_atualizacao { get; set; }
+        public string user { get; set; }
     }
 }

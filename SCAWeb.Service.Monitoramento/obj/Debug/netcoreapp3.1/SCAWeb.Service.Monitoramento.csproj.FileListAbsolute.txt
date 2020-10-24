@@ -56,3 +56,14 @@ D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\Microsof
 D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.csproj.CoreCompileInputs.cache
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.MvcApplicationPartsAssemblyInfo.cs
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.MvcApplicationPartsAssemblyInfo.cache
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.deps.json
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.runtimeconfig.json
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.runtimeconfig.dev.json
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.dll
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\bin\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.pdb
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.dll
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.pdb
+D:\Projetos\SCAWeb\SCAWeb.Service.Monitoramento\obj\Debug\netcoreapp3.1\SCAWeb.Service.Monitoramento.genruntimeconfig.cache

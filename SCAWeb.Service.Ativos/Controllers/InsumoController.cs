@@ -23,7 +23,6 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IInsumoService service
         )
         {
-          //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
             return (ServiceActionResult)service.CreateInsumo(insumo);
         }
 
@@ -94,7 +93,7 @@ namespace SCAWeb.Service.Ativos.Controllers
 
         [Route("inativos")]
         [HttpGet]
-        [Authorize(Roles = "admin,user")]
+        [Authorize(Roles = "admin")]
         public IList<InsumoEntity> GetAllInativos(
             [FromServices] IInsumoRepository repository
         )

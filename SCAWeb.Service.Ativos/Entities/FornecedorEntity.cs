@@ -19,11 +19,11 @@ namespace SCAWeb.Service.Ativos.Entities
             user = User;
         }
 
-        public int cnpj_fornecedor { get; private set; }
-        public string nome_fantasia { get; private set; }
-        public string razao_social { get; private set; }
-        public DateTime data_atualizacao { get; private set; }
-        public string user { get; private set; }
+        public int cnpj_fornecedor { get; set; }
+        public string nome_fantasia { get; set; }
+        public string razao_social { get; set; }
+        public DateTime data_atualizacao { get; set; }
+        public string user { get; set; }
 
         public void UpdateFornecedor(string nomeFantasia, string razaoSocial, DateTime dataAtualizacao, string User)
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Flunt.Notifications;
+using Microsoft.EntityFrameworkCore;
 using SCAWeb.Service.Ativos.Entities;
 
 namespace SCAWeb.Service.Ativos.Data
@@ -19,6 +20,8 @@ namespace SCAWeb.Service.Ativos.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<Notification>();
+
             modelBuilder.Entity<InsumoEntity>().ToTable("Insumos");
             modelBuilder.Entity<InsumoEntity>().HasKey(x => x.Id);
             modelBuilder.Entity<InsumoEntity>().Property(x => x.user).IsRequired();

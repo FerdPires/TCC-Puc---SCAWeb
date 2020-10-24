@@ -37,11 +37,17 @@ namespace SCAWeb.Service.Ativos
             services.AddTransient<IManutencaoRepository, ManutencaoRepository>();
             services.AddTransient<ITipoInsumoRepository, TipoInsumoRepository>();
 
-            services.AddTransient<IAgendaManutencaoService, AgendaManutencaoService>();
-            services.AddTransient<IFornecedorService, FornecedorService>();
-            services.AddTransient<IInsumoService, InsumoService>();
-            services.AddTransient<IManutencaoService, ManutencaoService>();
+            services.AddTransient<IAgendaManutencaoService, AgendaManutencaoService>();           
+            services.AddTransient<IFornecedorService, FornecedorService>();           
+            services.AddTransient<IInsumoService, InsumoService>();           
+            services.AddTransient<IManutencaoService, ManutencaoService>();            
             services.AddTransient<ITipoInsumoService, TipoInsumoService>();
+            
+            services.AddTransient<AgendaManutencaoService, AgendaManutencaoService>();
+            services.AddTransient<FornecedorService, FornecedorService>();
+            services.AddTransient<InsumoService, InsumoService>();
+            services.AddTransient<ManutencaoService, ManutencaoService>();
+            services.AddTransient<TipoInsumoService, TipoInsumoService>();
 
             services.AddAuthentication(x =>
             {

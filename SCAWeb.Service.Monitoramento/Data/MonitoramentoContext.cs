@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Flunt.Notifications;
+using Microsoft.EntityFrameworkCore;
 using SCAWeb.Service.Monitoramento.Entities;
 
 namespace SCAWeb.Service.Monitoramento.Data
@@ -16,6 +17,8 @@ namespace SCAWeb.Service.Monitoramento.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<Notification>();
+
             modelBuilder.Entity<AreaEntity>().ToTable("Areas");
             modelBuilder.Entity<AreaEntity>().HasKey(x => x.Id);
             modelBuilder.Entity<AreaEntity>().Property(x => x.user).IsRequired();
@@ -28,7 +31,7 @@ namespace SCAWeb.Service.Monitoramento.Data
             modelBuilder.Entity<SensorEntity>().Property(x => x.nome_sensor).IsRequired();
             modelBuilder.Entity<SensorEntity>().Property(x => x.status_sensor).IsRequired();
             modelBuilder.Entity<SensorEntity>().Property(x => x.data_atualizacao).HasColumnType("datetime").IsRequired();
-            modelBuilder.Entity<SensorEntity>().Property(x => x.id_sensor).IsRequired();
+            modelBuilder.Entity<SensorEntity>().Property(x => x.id_area).IsRequired();
 
             modelBuilder.Entity<AlertaSensorEntity>().ToTable("Fornecedor");
             modelBuilder.Entity<AlertaSensorEntity>().HasKey(x => x.Id);
