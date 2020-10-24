@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogo", "Catalogo\Catalogo.csproj", "{82FF1CFE-2401-4A23-BCA9-2D128F60F9A3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedido", "Pedido\Pedido.csproj", "{819238B2-0A64-4190-BD6E-263146008AB3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCAWeb.Gateway", "SCAWeb.Gateway\SCAWeb.Gateway.csproj", "{7C52B657-3079-4564-8F04-551E551AC547}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCAWeb.Auth", "SCAWeb.Auth\SCAWeb.Auth.csproj", "{EFB22E19-E416-49F7-A1DB-14F0B863A7F9}"
@@ -21,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82FF1CFE-2401-4A23-BCA9-2D128F60F9A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82FF1CFE-2401-4A23-BCA9-2D128F60F9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82FF1CFE-2401-4A23-BCA9-2D128F60F9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82FF1CFE-2401-4A23-BCA9-2D128F60F9A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{819238B2-0A64-4190-BD6E-263146008AB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{819238B2-0A64-4190-BD6E-263146008AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{819238B2-0A64-4190-BD6E-263146008AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{819238B2-0A64-4190-BD6E-263146008AB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C52B657-3079-4564-8F04-551E551AC547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C52B657-3079-4564-8F04-551E551AC547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C52B657-3079-4564-8F04-551E551AC547}.Release|Any CPU.ActiveCfg = Release|Any CPU
