@@ -24,7 +24,7 @@ namespace SCAWeb.Service.Ativos.Services
             if (fornecedorEntity.Invalid)
                 return new ServiceActionResult(false, "Algo deu errado ao incluir!", fornecedorEntity.Notifications);
 
-            var fornecedor = new FornecedorEntity
+            var fornecedorNew = new FornecedorEntity
             (
                 fornecedorEntity.cnpj_fornecedor,
                 fornecedorEntity.nome_fantasia, 
@@ -33,7 +33,12 @@ namespace SCAWeb.Service.Ativos.Services
                 fornecedorEntity.user
             );
 
-            _fornecedorRepository.Create(fornecedor);
+            _fornecedorRepository.Create(fornecedorNew);
+
+            var fornecedor = _fornecedorRepository.GetById(fornecedorNew.Id);
+
+            if(fornecedor == null)
+                return new ServiceActionResult(false, "Algo deu errado ao incluir!", null);
 
             return new ServiceActionResult(true, "Fornecedor criado!", fornecedor);
         }

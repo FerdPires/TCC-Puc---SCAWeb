@@ -23,7 +23,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] ITipoInsumoService service
         )
         {
-            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            tipoInsumo.user = User.Identity.Name;
             return (ServiceActionResult)service.CreateTipoInsumo(tipoInsumo);
         }
 

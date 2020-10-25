@@ -56,13 +56,11 @@ export class TesteComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user$.subscribe((x) => {
-      debugger
       const accessToken = localStorage.getItem('access_token');
       const refreshToken = localStorage.getItem('refresh_token');
       this.service.teste(accessToken)
         .subscribe(
           (data: any) => {
-            debugger
             this.value = data;
 
           }

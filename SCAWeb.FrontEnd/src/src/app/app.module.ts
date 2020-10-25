@@ -9,13 +9,18 @@ import { TesteComponent } from './pages/teste/teste.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
+import { InsumoComponent } from './pages/insumo/insumo.component';
+import { ListInsumosComponent } from './pages/list-insumos/list-insumos.component';
+import { AgGridModule } from 'ag-grid-angular/lib/ag-grid-angular.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    TesteComponent
+    TesteComponent,
+    InsumoComponent,
+    ListInsumosComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,7 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     HttpClientModule,
     CoreModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

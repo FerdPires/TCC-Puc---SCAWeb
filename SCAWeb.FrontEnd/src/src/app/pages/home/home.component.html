@@ -8,13 +8,32 @@
 
       </div>
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="selected"
-          [routerLinkActiveOptions]="{exact: true}">Home</a>
-          <a class="nav-item nav-link" routerLink="/teste" routerLinkActive="selected">Teste APIs</a>
-        <!-- <a class="nav-item nav-link" routerLink="/new-leilao" routerLinkActive="selected">Criar Leilão</a>
-        <a class="nav-item nav-link" routerLink="/user-leiloes" routerLinkActive="selected">Meus Leilões</a>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-item nav-link" routerLink="/" routerLinkActive="selected"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/teste" routerLinkActive="selected">Teste APIs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ativos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/insumo" routerLinkActive="selected">Novo Insumo</a>
+              <!-- <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a> -->
+            </div>
+          </li>
+          
+        <!-- <a class="nav-item nav-link" routerLink="/user-leiloes" routerLinkActive="selected">Meus Leilões</a>
         <a class="nav-item nav-link" routerLink="/list-leiloes" routerLinkActive="selected">Listar Leilões</a> -->
-        <a class="nav-item nav-link" (click)="logout()">Sair</a>
+        <li class="nav-item">
+          <a class="nav-item nav-link" (click)="logout()">Sair</a>
+        </li>     
+        </ul>
       </div>
     </div>
 </nav>

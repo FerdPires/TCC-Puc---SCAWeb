@@ -27,10 +27,10 @@ namespace SCAWeb.Service.Ativos.Services
             if (insumoEntity.Invalid)
                 return new ServiceActionResult(false, "Algo deu errado ao incluir!", insumoEntity.Notifications);
 
-            var insumo = new InsumoEntity
+            var insumoNew = new InsumoEntity
             (
                 insumoEntity.descricao_insumo,
-                insumoEntity.status_insumo,
+                StatusInsumo.Ativo,
                 insumoEntity.data_aquisicao,
                 DateTime.Now,
                 insumoEntity.qtd_dias_manut_prev,
@@ -39,9 +39,11 @@ namespace SCAWeb.Service.Ativos.Services
                 insumoEntity.user
             );
 
-            _insumoRepository.Create(insumo);
+            _insumoRepository.Create(insumoNew);
 
-            if(insumo.Id != null)
+            var insumo = _insumoRepository.GetById(insumoNew.Id);
+
+            if(insumo != null)
             {
                 var agendaManut = new AgendaManutencaoEntity
                 (
@@ -55,6 +57,8 @@ namespace SCAWeb.Service.Ativos.Services
 
                 _agendaManutRepository.AgendaManutencaoCreate(agendaManut);
             }
+            else
+                return new ServiceActionResult(false, "Algo deu errado ao incluir!", null);
 
             return new ServiceActionResult(true, "Insumo criado!", insumo);
         }

@@ -23,6 +23,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IInsumoService service
         )
         {
+            insumo.user = User.Identity.Name;
             return (ServiceActionResult)service.CreateInsumo(insumo);
         }
 
@@ -39,7 +40,7 @@ namespace SCAWeb.Service.Ativos.Controllers
         }
 
         [Route("excluir")]
-        [HttpDelete]
+        [HttpPut]
         [Authorize(Roles = "admin")]
         public IServiceActionResult Delete(
            [FromBody] InsumoEntity insumo,

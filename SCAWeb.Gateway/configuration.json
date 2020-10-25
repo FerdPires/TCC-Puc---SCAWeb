@@ -186,7 +186,7 @@
         }
       ],
       "UpstreamPathTemplate": "/insumo/excluir",
-      "UpstreamHttpMethod": [ "Delete" ],
+      "UpstreamHttpMethod": [ "Put" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []

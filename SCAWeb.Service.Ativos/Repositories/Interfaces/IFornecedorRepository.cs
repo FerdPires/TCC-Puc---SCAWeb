@@ -9,7 +9,7 @@ namespace SCAWeb.Service.Ativos.Repositories.Interfaces
         void Create(FornecedorEntity fornecedor);
         void Update(FornecedorEntity fornecedor);
         void Delete(FornecedorEntity fornecedor);
-        FornecedorEntity GetByCnpj(int cnpj);
+        FornecedorEntity GetByCnpj(string cnpj);
         FornecedorEntity GetById(Guid id);
         IList<FornecedorEntity> GetAll();
     }

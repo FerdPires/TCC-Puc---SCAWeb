@@ -24,7 +24,7 @@ namespace SCAWeb.Service.Ativos.Services
             if (tipoInsumoEntity.Invalid)
                 return new ServiceActionResult(false, "Algo deu errado ao incluir!", tipoInsumoEntity.Notifications);
 
-            var tipoInsumo = new TipoInsumoEntity
+            var tipoInsumoNew = new TipoInsumoEntity
             (
                 tipoInsumoEntity.descricao_tp_insumo,
                // tipoInsumoEntity.qtd_dias_manut_prev, //validar essa data!!!! pq o tipo do insumo define os dias de manut do insumo?
@@ -32,7 +32,13 @@ namespace SCAWeb.Service.Ativos.Services
                 tipoInsumoEntity.user
             );
 
-            _tipoInsumoRepository.Create(tipoInsumo);
+            _tipoInsumoRepository.Create(tipoInsumoNew);
+
+
+            var tipoInsumo = _tipoInsumoRepository.GetById(tipoInsumoNew.Id);
+
+            if (tipoInsumo == null)
+                return new ServiceActionResult(false, "Algo deu errado ao incluir!", null);
 
             return new ServiceActionResult(true, "Tipo de Insumo criado!", tipoInsumo);
         }

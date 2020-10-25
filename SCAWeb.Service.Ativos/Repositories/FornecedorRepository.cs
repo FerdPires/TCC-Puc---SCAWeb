@@ -34,7 +34,7 @@ namespace SCAWeb.Service.Ativos.Repositories
             return _context.Fornecedor.AsNoTracking().OrderBy(x => x.razao_social).ToList();
         }
 
-        public FornecedorEntity GetByCnpj(int cnpj)
+        public FornecedorEntity GetByCnpj(string cnpj)
         {
             return _context.Fornecedor.FirstOrDefault(x => x.cnpj_fornecedor == cnpj);
         }

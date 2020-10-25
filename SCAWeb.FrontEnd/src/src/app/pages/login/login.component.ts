@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login() {
-    debugger
     if (!this.username || !this.password) {
       return;
     }

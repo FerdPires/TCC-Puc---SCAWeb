@@ -23,7 +23,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IFornecedorService service
         )
         {
-            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            fornecedor.user = User.Identity.Name;
             return (ServiceActionResult)service.CreateFornecedor(fornecedor);
         }
 
@@ -78,7 +78,7 @@ namespace SCAWeb.Service.Ativos.Controllers
         [HttpGet]
         [Authorize(Roles = "admin,user")]
         public FornecedorEntity GetByCnpj(
-            int cnpj,
+            string cnpj,
             [FromServices] IFornecedorRepository repository
         )
         {
