@@ -25,8 +25,8 @@ export class ListInsumosComponent implements OnInit {
       headerName: 'Pesquisar',
       cellRenderer: 'buttonDetails',
       cellRendererParams: {
-        onClick: this.onBtnClick.bind(this),
-        label: 'Click'
+        onClick: this.details.bind(this),
+        label: 'Detalhes'
       }
     },
     { field: 'descricao_insumo', sortable: true, filter: true },
@@ -36,16 +36,16 @@ export class ListInsumosComponent implements OnInit {
       headerName: 'Editar',
       cellRenderer: 'buttonEdit',
       cellRendererParams: {
-        onClick: this.onBtnClick.bind(this),
-        label: 'Click'
+        onClick: this.update.bind(this),
+        label: 'Editar'
       }
     },
     {
       headerName: 'Excluir',
       cellRenderer: 'buttonDelete',
       cellRendererParams: {
-        onClick: this.onBtnClick.bind(this),
-        label: 'Click'
+        onClick: this.delete.bind(this),
+        label: 'Excluir'
       }
     }
   ];
@@ -55,7 +55,15 @@ export class ListInsumosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onBtnClick(e) {
+  details(e) {
+    this.rowDataClicked = e.rowData;
+  }
+
+  update(e) {
+    this.rowDataClicked = e.rowData;
+  }
+
+  delete(e) {
     this.rowDataClicked = e.rowData;
   }
 }

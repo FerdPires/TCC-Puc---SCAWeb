@@ -1,7 +1,26 @@
-<ag-grid-angular
+<!-- <ag-grid-angular
     style="width: 500px; height: 500px;"
     class="ag-theme-alpine"
     [rowData]="rowData | async"
-    [columnDefs]="columnDefs"
->
-</ag-grid-angular>
+    [columnDefs]="columnDefs">
+</ag-grid-angular> -->
+
+<form class="was-validated" [formGroup]="form">
+    <div class="container">
+      <h2>Meus Leilões</h2>
+      <br>
+      <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <ag-grid-angular 
+                    style="width: 500px; height: 200px;" 
+                    class="ag-theme-balham"
+                    [rowData]="rowData" 
+                    [columnDefs]="columnDefs"
+                    [frameworkComponents]="frameworkComponents">
+                </ag-grid-angular>
+            </div>
+        </div>
+      </div>
+    </div>
+</form>

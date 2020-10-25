@@ -44,4 +44,24 @@ export class DataService {
   public getAllFornecedor(token) {
     return this.http.get(`${environment.apiUrl}fornecedor/listar`, { headers: this.composeHeaders(token) });
   }
+
+  public GetAllPreventiva(token) {
+    return this.http.get(`${environment.apiUrl}manutencao-preventiva/agendamento/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  public GetAllCorretiva(token) {
+    return this.http.get(`${environment.apiUrl}manutencao-corretiva/agendamento/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  public postManutencao(data, token) {
+    return this.http.post(`${environment.apiUrl}manutencao/criar`, data, { headers: this.composeHeaders(token) });
+  }
+
+  public putManutCorretiva(data, token) {
+    return this.http.put(`${environment.apiUrl}manutencao-corretiva/editar`, data, { headers: this.composeHeaders(token) });
+  }
+
+  public putManutPreventiva(data, token) {
+    return this.http.put(`${environment.apiUrl}manutencao-preventiva/editar`, data, { headers: this.composeHeaders(token) });
+  }
 }

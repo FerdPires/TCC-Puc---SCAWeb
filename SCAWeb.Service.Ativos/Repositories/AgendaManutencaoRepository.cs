@@ -52,10 +52,10 @@ namespace SCAWeb.Service.Ativos.Repositories
                 .OrderBy(x => x.data_manutencao).ThenBy(x => x.status_agenda).ToList();
         }
 
-        public IList<AgendaManutencaoEntity> GetAllToday()
+        public IList<AgendaManutencaoEntity> GetAllUntilToday()
         {
             return _context.AgendaManutencao.AsNoTracking()
-                .Where(x => x.data_manutencao == DateTime.Today && x.status_agenda == StatusAgendaManut.Aberto).ToList();
+                .Where(x => x.data_manutencao <= DateTime.Today && x.status_agenda == StatusAgendaManut.Aberto).ToList();
         }
 
         public IList<AgendaManutencaoEntity> GetAllAberto()
@@ -72,14 +72,20 @@ namespace SCAWeb.Service.Ativos.Repositories
 
         public IList<AgendaManutencaoEntity> GetAllCorretiva()
         {
-            return _context.AgendaManutencao.AsNoTracking().Where(x => x.tipo_manutencao == TipoManutencao.Corretiva)
-                .OrderBy(x => x.data_manutencao).ThenBy(x => x.status_agenda).ToList();
+            return _context.AgendaManutencao.AsNoTracking()
+                .Where(x => x.tipo_manutencao == TipoManutencao.Corretiva &&
+                        x.data_manutencao <= DateTime.Today && 
+                        x.status_agenda == StatusAgendaManut.Aberto)
+                .OrderBy(x => x.data_manutencao).ToList();//.ThenBy(x => x.status_agenda).ToList();
         }
 
         public IList<AgendaManutencaoEntity> GetAllPreventiva()
         {
-            return _context.AgendaManutencao.AsNoTracking().Where(x => x.tipo_manutencao == TipoManutencao.Preventiva)
-                .OrderBy(x => x.data_manutencao).ThenBy(x => x.status_agenda).ToList();
+            return _context.AgendaManutencao.AsNoTracking()
+                .Where(x => x.tipo_manutencao == TipoManutencao.Preventiva &&
+                        x.data_manutencao <= DateTime.Today &&
+                        x.status_agenda == StatusAgendaManut.Aberto)
+                .OrderBy(x => x.data_manutencao).ToList();//.ThenBy(x => x.status_agenda).ToList();
         }
     }
 }

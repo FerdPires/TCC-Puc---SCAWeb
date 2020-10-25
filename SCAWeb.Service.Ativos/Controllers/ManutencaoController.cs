@@ -69,11 +69,11 @@ namespace SCAWeb.Service.Ativos.Controllers
         [Route("agendamento/hoje")]
         [HttpGet]
         [Authorize(Roles = "admin,user")]
-        public IList<AgendaManutencaoEntity> GetAllToday(
+        public IList<AgendaManutencaoEntity> GetAllUntilToday(
             [FromServices] IAgendaManutencaoRepository repository
         )
         {
-            return repository.GetAllToday();
+            return repository.GetAllUntilToday();
         }
 
         [Route("agendamento/abertas")]

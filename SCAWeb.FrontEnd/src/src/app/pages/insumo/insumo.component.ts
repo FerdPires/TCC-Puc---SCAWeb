@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr/toastr/toastr.service';
 import { AuthService } from 'src/app/core';
 import { DataService } from 'src/app/data.service';
+import { Operacao } from 'src/app/models/Enums/operacao.enum';
+import { InsumoModel } from 'src/app/models/insumo-model';
 
 @Component({
   selector: 'app-insumo',
@@ -12,17 +14,19 @@ import { DataService } from 'src/app/data.service';
 })
 export class InsumoComponent implements OnInit {
   public form: FormGroup;
-  public insumo = {
-    Id: '',
-    descricao_insumo: '',
-    status_insumo: null,
-    data_aquisicao: '',
-    data_atualizacao: '',
-    qtd_dias_manut_prev: null,
-    id_tipo_insumo: '',
-    id_fornec_insumo: '',
-    user: ''
-  }
+  public vm: InsumoModel = new InsumoModel();
+  public estadoTela: Operacao;
+  // public insumo = {
+  //   Id: '',
+  //   descricao_insumo: '',
+  //   status_insumo: null,
+  //   data_aquisicao: '',
+  //   data_atualizacao: '',
+  //   qtd_dias_manut_prev: null,
+  //   id_tipo_insumo: '',
+  //   id_fornec_insumo: '',
+  //   user: ''
+  // }
   public listTipoInsumo = [];
   public listFornecedor = [];
 
@@ -51,7 +55,9 @@ export class InsumoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.estadoTela = Operacao.I;
     this.authService.user$.subscribe(x => {
+      debugger
       const accessToken = localStorage.getItem('access_token');
       const token = x;
       this.service.getAllTipoInsumo(accessToken)
@@ -71,15 +77,16 @@ export class InsumoComponent implements OnInit {
 
   submit() {
     this.authService.user$.subscribe(x => {
+      debugger
       const accessToken = localStorage.getItem('access_token');
       const token = x;
-      this.insumo.descricao_insumo = this.form.value.descricao_insumo;
-      this.insumo.data_aquisicao = new Date(this.form.value.data_aquisicao).toJSON();
-      this.insumo.qtd_dias_manut_prev = this.form.value.qtd_dias_manut_prev;
-      this.insumo.id_tipo_insumo = this.form.value.id_tipo_insumo;
-      this.insumo.id_fornec_insumo = this.form.value.id_fornec_insumo;
+      this.vm.Registros.descricao_insumo = this.form.value.descricao_insumo;
+      this.vm.Registros.data_aquisicao = new Date(this.form.value.data_aquisicao).toJSON();
+      this.vm.Registros.qtd_dias_manut_prev = this.form.value.qtd_dias_manut_prev;
+      this.vm.Registros.id_tipo_insumo = this.form.value.id_tipo_insumo;
+      this.vm.Registros.id_fornec_insumo = this.form.value.id_fornec_insumo;
 
-      this.service.postInsumo(this.insumo, accessToken)
+      this.service.postInsumo(this.vm.Registros, accessToken)
         .subscribe((res: any) => {
           if (res.success) {
             this.toastr.success(res.message);
@@ -93,12 +100,13 @@ export class InsumoComponent implements OnInit {
 
   update() {
     this.authService.user$.subscribe(token => {
-      this.insumo.Id = this.form.value.Id;
-      this.insumo.descricao_insumo = this.form.value.descricao_insumo;
-      this.insumo.status_insumo = this.form.value.status_insumo;
-      this.insumo.qtd_dias_manut_prev = this.form.value.qtd_dias_manut_prev;
+      debugger
+      this.vm.Registros.Id = this.form.value.Id;
+      this.vm.Registros.descricao_insumo = this.form.value.descricao_insumo;
+      this.vm.Registros.status_insumo = this.form.value.status_insumo;
+      this.vm.Registros.qtd_dias_manut_prev = this.form.value.qtd_dias_manut_prev;
 
-      this.service.putInsumo(this.insumo, token)
+      this.service.putInsumo(this.vm.Registros, token)
         .subscribe((res: any) => {
           if (res.success) {
             this.toastr.success(res.message);
@@ -110,10 +118,11 @@ export class InsumoComponent implements OnInit {
     });
   }
 
-  delete(data: any) {
-    if (confirm('Deseja realmente excluir esse Insumo?')) {
+  delete() {
+    debugger
+    if (confirm('Deseja realmente desativar esse Insumo?')) {
       this.authService.user$.subscribe(token => {
-        this.service.deleteInsumo(data, token)
+        this.service.deleteInsumo(this.form.value, token)
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
@@ -128,17 +137,7 @@ export class InsumoComponent implements OnInit {
 
   cancelar() {
     if (confirm('Cancelar as mudanças?')) {
-      this.insumo = {
-        Id: '',
-        descricao_insumo: '',
-        status_insumo: null,
-        data_aquisicao: '',
-        data_atualizacao: '',
-        qtd_dias_manut_prev: null,
-        id_tipo_insumo: '',
-        id_fornec_insumo: '',
-        user: ''
-      }
+      this.vm.Registros = this.vm.LimpaRegistros();
       this.router.navigateByUrl("/");
     }
   }

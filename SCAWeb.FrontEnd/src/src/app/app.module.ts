@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { InsumoComponent } from './pages/insumo/insumo.component';
 import { ListInsumosComponent } from './pages/list-insumos/list-insumos.component';
 import { AgGridModule } from 'ag-grid-angular/lib/ag-grid-angular.module';
+import { ManutencaoInsumoComponent } from './manutencao-insumo/manutencao-insumo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AgGridModule } from 'ag-grid-angular/lib/ag-grid-angular.module';
     LoginComponent,
     TesteComponent,
     InsumoComponent,
-    ListInsumosComponent
+    ListInsumosComponent,
+    ManutencaoInsumoComponent
   ],
   imports: [
     BrowserModule,

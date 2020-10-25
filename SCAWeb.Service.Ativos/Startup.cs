@@ -29,7 +29,9 @@ namespace SCAWeb.Service.Ativos
         {
             services.AddControllers();
 
-            services.AddDbContext<AtivosContext>(options => options.UseInMemoryDatabase("Database"));
+            //services.AddDbContext<AtivosContext>(options => options.UseInMemoryDatabase("Database"));
+            services.AddDbContext<AtivosContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connectionLocalDb")));
+
 
             services.AddTransient<IAgendaManutencaoRepository, AgendaManutencaoRepository>();
             services.AddTransient<IFornecedorRepository, FornecedorRepository>();

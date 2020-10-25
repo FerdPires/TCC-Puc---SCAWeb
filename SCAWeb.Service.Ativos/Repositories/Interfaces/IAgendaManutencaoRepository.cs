@@ -12,7 +12,7 @@ namespace SCAWeb.Service.Ativos.Repositories.Interfaces
         void Delete(AgendaManutencaoEntity agendaManutencao);
         void Update(AgendaManutencaoEntity agendaManutencao);
         IList<AgendaManutencaoEntity> GetAll();
-        IList<AgendaManutencaoEntity> GetAllToday();
+        IList<AgendaManutencaoEntity> GetAllUntilToday();
         IList<AgendaManutencaoEntity> GetAllAberto();
         IList<AgendaManutencaoEntity> GetAllFechado();
         IList<AgendaManutencaoEntity> GetAllCorretiva();
