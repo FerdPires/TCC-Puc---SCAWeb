@@ -1,24 +1,25 @@
 <form class="was-validated" [formGroup]="form">
     <div class="container">
-      <h2>Cadastrar um novo Insumo</h2>
+      <br>
+      <h4>Cadastrar um novo Insumo</h4>
   
       <div class="row">
-        <div class="col">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label for="tipoInsumo">Tipo de Insumo</label>
-            <select class="form-control" id="tipoInsumo" required>
-                <option *ngFor="let item of listTipoInsumo" [value]="item.Id" formControlName="id_tipo_insumo">{{item.descricao_tp_insumo}}</option>
+            <label for="tipoInsumo" class="col-form-label col-form-label-sm">Tipo de Insumo</label>
+            <select class="form-control form-control-sm" id="tipoInsumo" formControlName="id_tipo_insumo" required>
+                <option *ngFor="let item of listTipoInsumo" [value]="item.Id">{{item.descricao_tp_insumo}}</option>
             </select>
             <div class="invalid-feedback">
               Favor informar o tipo do Insumo!
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm-4">
           <div class="form-group">  
-            <label for="fornecedor">Fornecedor</label>
-            <select class="form-control" id="fornecedor" required>
-                <option *ngFor="let item of listFornecedor" [value]="item.Id" formControlName="id_fornec_insumo">{{item.nome_fantasia}}</option>
+            <label for="fornecedor" class="col-form-label col-form-label-sm">Fornecedor</label>
+            <select class="form-control form-control-sm" id="fornecedor" formControlName="id_fornec_insumo" required>
+                <option *ngFor="let item of listFornecedor" [value]="item.Id">{{item.nome_fantasia}}</option>
             </select>
             <div class="invalid-feedback">
                 Favor informar o Fornecedor do Insumo!
@@ -28,38 +29,38 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label for="descricaoInsumo">Descrição do Insumo</label>
-            <input type="text" class="form-control" id="descricaoInsumo" formControlName="descricao_insumo" maxlength="100"
+            <label for="descricaoInsumo" class="col-form-label col-form-label-sm">Descrição do Insumo</label>
+            <input type="text" class="form-control form-control-sm" id="descricaoInsumo" formControlName="descricao_insumo" maxlength="100"
               required>
             <div class="invalid-feedback">
               Favor informar o Insumo!
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm-2">
           <div class="form-group">  
-            <label for="statusInsumo">Status</label>
-            <input type="text" class="form-control" id="statusInsumo" formControlName="status_insumo" disabled>
+            <label for="statusInsumo" class="col-form-label col-form-label-sm">Status</label>
+            <input type="text" class="form-control form-control-sm" id="statusInsumo" [value]="status_insumo" disabled>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label for="dataInicial">Data de aquisição</label>
-            <input type="datetime-local" class="form-control" id="dataInicial" formControlName="data_aquisicao" required>
+            <label for="dataInicial" class="col-form-label col-form-label-sm">Data de aquisição</label>
+            <input type="date" class="form-control form-control-sm" id="dataInicial" formControlName="data_aquisicao" required>
             <div class="invalid-feedback">
               Favor informar a data de aquisição desse Insumo!
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm-4">
           <div class="form-group">
-            <label for="diasManutPrev">Quantidade de dias para Manutenção Preventiva</label>
-            <input type="number" class="form-control md-2" id="diasManutPrev" formControlName="qtd_dias_manut_prev" required>
+            <label for="diasManutPrev" class="col-form-label col-form-label-sm">Quantidade de dias para Manutenção Preventiva</label>
+            <input type="number" class="form-control form-control-sm" id="diasManutPrev" formControlName="qtd_dias_manut_prev" required>
             <div class="invalid-feedback">
               Favor informar a quantidade de dias para Manutenção Preventiva!
             </div>
@@ -68,14 +69,19 @@
       </div>
 
       <div class="row">
-        <button class="btn btn-success btn-sm pt-0" (click)="submit()" [disabled]="form.invalid">
-            <i class="fa fa-floppy-o"></i>Salvar</button>
-  
-        <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()">
-            <i class="fa fa-times"></i>Cancelar</button>
+        <div class="btn-group col-sm-3">
+          <button class="btn btn-success btn-sm" (click)="salvar()" [disabled]="form.invalid">
+            <i class="fa fa-floppy-o"></i> Salvar</button>
 
-        <button class="btn btn-danger btn-sm" type="button" (click)="delete()">
-            <i class="fa fa-trash"></i>Desabilitar Insumo</button>
+            <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()">
+              <i class="fa fa-times"></i> Cancelar</button>
+        </div>
+
+        <div class="col-sm-2">
+          <button class="btn btn-danger btn-sm" type="button" (click)="delete()">
+            <i class="fa fa-trash"></i> Desabilitar Insumo</button>
+        </div>
+
   
         <!-- <button class="btn btn-secondary btn-sm" type="button" (click)="teste()"><i class="fa fa-times"></i>teste</button> -->
       </div>

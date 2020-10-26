@@ -5,16 +5,17 @@
     [columnDefs]="columnDefs">
 </ag-grid-angular> -->
 
-<form class="was-validated" [formGroup]="form">
+<form>
     <div class="container">
-      <h2>Meus Leilões</h2>
+      <br>
+      <h4>Insumos</h4>
       <br>
       <div class="row">
         <div class="col">
             <div class="form-group">
                 <ag-grid-angular 
-                    style="width: 500px; height: 200px;" 
-                    class="ag-theme-balham"
+                    style="width: 100%; height: 400px;" 
+                    class="ag-theme-alpine"
                     [rowData]="rowData" 
                     [columnDefs]="columnDefs"
                     [frameworkComponents]="frameworkComponents">

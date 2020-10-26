@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr/public_api';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core';
 import { DataService } from 'src/app/data.service';
 import { Operacao } from 'src/app/models/Enums/operacao.enum';
@@ -69,37 +69,43 @@ export class ManutencaoInsumoComponent implements OnInit {
     });
   }
 
-  submit() {
-    this.authService.user$.subscribe(x => {
-      const accessToken = localStorage.getItem('access_token');
-      const token = x;
-      this.vm.Registros.tipo_manutencao = this.form.value.tipo_manutencao;
-      this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
-      //this.vm.Registros.status_manutencao = this.form.value.qtd_dias_manut_prev;
-      this.vm.Registros.data_inicio = this.form.value.data_inicio;
-      //this.vm.Registros.data_fim = this.form.value.id_fornec_insumo;
-      this.vm.Registros.id_insumo = this.form.value.id_insumo;
+  salvar() {
+    if (this.estadoTela == Operacao.I) {
+      this.authService.user$.subscribe(x => {
+        const accessToken = localStorage.getItem('access_token');
+        const token = x;
+        this.vm.Registros.tipo_manutencao = this.form.value.tipo_manutencao;
+        this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
+        //this.vm.Registros.status_manutencao = this.form.value.qtd_dias_manut_prev;
+        this.vm.Registros.data_inicio = this.form.value.data_inicio;
+        //this.vm.Registros.data_fim = this.form.value.id_fornec_insumo;
+        this.vm.Registros.id_insumo = this.form.value.id_insumo;
 
-      this.service.postManutencao(this.vm.Registros, accessToken)
-        .subscribe((res: any) => {
-          if (res.success) {
-            this.toastr.success(res.message);
-          } else {
-            this.toastr.error(res.message);
-          }
-          this.router.navigateByUrl("/");
-        });
-    });
+        this.service.postManutencao(this.vm.Registros, accessToken)
+          .subscribe((res: any) => {
+            if (res.success) {
+              this.toastr.success(res.message);
+            } else {
+              this.toastr.error(res.message);
+            }
+            this.router.navigateByUrl("/");
+          });
+      });
+    }
+    else if (this.estadoTela == Operacao.E) {
+      this.update();
+    }
+
   }
 
-  finalizarManutencao() {
+  update() {
     this.authService.user$.subscribe(x => {
+      debugger
       const accessToken = localStorage.getItem('access_token');
       const token = x;
 
       this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
       this.vm.Registros.tipo_manutencao = this.form.value.tipo_manutencao;
-      this.vm.Registros.status_manutencao = 2;
       this.vm.Registros.id_insumo = this.form.value.id_insumo;
 
       if (this.form.value.tipo_manutencao == 1) {
@@ -124,6 +130,18 @@ export class ManutencaoInsumoComponent implements OnInit {
           });
       }
     });
+  }
+
+  finalizarManutencao() {
+    this.vm.Registros.status_manutencao = 2;
+    this.update();
+  }
+
+  cancelar() {
+    if (confirm('Cancelar as mudanças?')) {
+      this.vm.Registros = this.vm.LimpaRegistros();
+      this.router.navigateByUrl("/");
+    }
   }
 
 }

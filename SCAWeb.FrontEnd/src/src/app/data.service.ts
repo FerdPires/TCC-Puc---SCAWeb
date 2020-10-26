@@ -25,6 +25,10 @@ export class DataService {
     //return this.http.get(`${this.baseUrl}/v1/leiloes/user`, { headers: this.composeHeaders(token) });
   }
 
+  public getAllInsumos(token) {
+    return this.http.get(`${environment.apiUrl}insumo/listar`, { headers: this.composeHeaders(token) });
+  }
+
   public postInsumo(data, token) {
     return this.http.post(`${environment.apiUrl}insumo/criar`, data, { headers: this.composeHeaders(token) });
   }

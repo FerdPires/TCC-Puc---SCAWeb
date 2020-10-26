@@ -1,6 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular/lib/ag-grid-angular.component';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/core';
+import { DataService } from 'src/app/data.service';
 import { ButtonDeleteRendererComponent } from 'src/app/renderer/button-delete-renderer.component';
+import { ButtonDetailsRendererComponent } from 'src/app/renderer/button-details-renderer.component';
+import { ButtonEditRendererComponent } from 'src/app/renderer/button-edit-renderer.component';
 
 @Component({
   selector: 'app-list-insumos',
@@ -12,11 +16,14 @@ export class ListInsumosComponent implements OnInit {
   rowData: any;
   rowDataClicked = {};
 
-  constructor() {
+  constructor(
+    private authService: AuthService,
+    private service: DataService,
+  ) {
     this.frameworkComponents = {
       buttonDelete: ButtonDeleteRendererComponent,
-      buttonDetails: ButtonDeleteRendererComponent,
-      buttonEdit: ButtonDeleteRendererComponent,
+      buttonDetails: ButtonDetailsRendererComponent,
+      buttonEdit: ButtonEditRendererComponent,
     }
   }
 
@@ -53,6 +60,16 @@ export class ListInsumosComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.authService.user$.subscribe(x => {
+      const accessToken = localStorage.getItem('access_token');
+      this.service.getAllInsumos(accessToken)
+        .subscribe(
+          (data: any) => {
+            debugger
+            this.rowData = data;
+          }
+        );
+    });
   }
 
   details(e) {

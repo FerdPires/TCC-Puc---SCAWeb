@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 
 @Component({
-    selector: 'app-button-renderer',
+    selector: 'app-button-edit-renderer',
     template: `
     <button type="button" class="btn btn-success" (click)="onClick($event)"><i class="fa fa-edit"></i></button>
     `

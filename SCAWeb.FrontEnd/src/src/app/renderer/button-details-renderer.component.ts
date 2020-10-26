@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 
 @Component({
-    selector: 'app-button-renderer',
+    selector: 'app-button-details-renderer',
     template: `
     <button type="button" class="btn btn-secondary" (click)="onClick($event)"><i class="fa fa-search"></i></button>
     `
