@@ -4,7 +4,7 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 @Component({
     selector: 'app-button-delete-renderer',
     template: `
-    <button type="button" class="btn btn-danger" (click)="onClick($event)"><i class="fa fa-trash"></i></button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="onClick($event)"><i class="fa fa-trash"></i></button>
     `
 })
 

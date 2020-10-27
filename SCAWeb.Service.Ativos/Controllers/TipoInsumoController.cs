@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/tipo-insumo")]
+    [Route("api/tipo-insumo")]
     [Authorize]
     public class TipoInsumoController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] ITipoInsumoService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            tipoInsumo.user = User.Identity.Name;
             return (ServiceActionResult)service.UpdateTipoInsumo(tipoInsumo);
         }
 

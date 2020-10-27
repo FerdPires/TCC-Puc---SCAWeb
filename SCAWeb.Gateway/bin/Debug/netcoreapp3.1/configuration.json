@@ -81,7 +81,7 @@
 
     //*****************Ativos
     {
-      "DownstreamPathTemplate": "/v1/fornecedor/criar",
+      "DownstreamPathTemplate": "/api/fornecedor/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -97,7 +97,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/fornecedor/editar",
+      "DownstreamPathTemplate": "/api/fornecedor/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -113,7 +113,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/fornecedor/excluir",
+      "DownstreamPathTemplate": "/api/fornecedor/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -129,7 +129,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/fornecedor/listar",
+      "DownstreamPathTemplate": "/api/fornecedor/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -145,7 +145,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/fornecedor/obter",
+      "DownstreamPathTemplate": "/api/fornecedor/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -161,7 +161,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/criar",
+      "DownstreamPathTemplate": "/api/insumo/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -177,7 +177,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/editar",
+      "DownstreamPathTemplate": "/api/insumo/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -193,7 +193,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/excluir",
+      "DownstreamPathTemplate": "/api/insumo/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -209,7 +209,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/listar",
+      "DownstreamPathTemplate": "/api/insumo/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -225,7 +225,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/obter",
+      "DownstreamPathTemplate": "/api/insumo/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -241,7 +241,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/em-manutencao",
+      "DownstreamPathTemplate": "/api/insumo/em-manutencao",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -257,7 +257,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/ativos",
+      "DownstreamPathTemplate": "/api/insumo/ativos",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -273,7 +273,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/insumo/inativos",
+      "DownstreamPathTemplate": "/api/insumo/inativos",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -289,7 +289,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/tipo-insumo/criar",
+      "DownstreamPathTemplate": "/api/tipo-insumo/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -305,7 +305,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/tipo-insumo/editar",
+      "DownstreamPathTemplate": "/api/tipo-insumo/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -321,7 +321,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/tipo-insumo/excluir",
+      "DownstreamPathTemplate": "/api/tipo-insumo/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -337,7 +337,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/tipo-insumo/listar",
+      "DownstreamPathTemplate": "/api/tipo-insumo/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -353,7 +353,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/tipo-insumo/obter",
+      "DownstreamPathTemplate": "/api/tipo-insumo/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -369,7 +369,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/criar",
+      "DownstreamPathTemplate": "/api/manutencao/criar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -385,7 +385,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/listar",
+      "DownstreamPathTemplate": "/api/manutencao/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -401,7 +401,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/abertas",
+      "DownstreamPathTemplate": "/api/manutencao/abertas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -417,7 +417,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/concluidas",
+      "DownstreamPathTemplate": "/api/manutencao/concluidas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -433,7 +433,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/agendamento/listar",
+      "DownstreamPathTemplate": "/api/manutencao/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -449,7 +449,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/agendamento/hoje",
+      "DownstreamPathTemplate": "/api/manutencao/agendamento/hoje",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -465,7 +465,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/agendamento/abertas",
+      "DownstreamPathTemplate": "/api/manutencao/agendamento/abertas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -481,7 +481,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao/agendamento/fechadas",
+      "DownstreamPathTemplate": "/api/manutencao/agendamento/fechadas",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -497,7 +497,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/editar",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -513,7 +513,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -529,7 +529,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/editar",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -545,7 +545,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/excluir",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/excluir",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -561,7 +561,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/agendamento/listar",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -577,7 +577,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-corretiva/listar",
+      "DownstreamPathTemplate": "/api/manutencao-corretiva/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -593,7 +593,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-preventiva/editar",
+      "DownstreamPathTemplate": "/api/manutencao-preventiva/editar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -609,7 +609,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-preventiva/agendamento/listar",
+      "DownstreamPathTemplate": "/api/manutencao-preventiva/agendamento/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -625,7 +625,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/manutencao-preventiva/listar",
+      "DownstreamPathTemplate": "/api/manutencao-preventiva/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -644,7 +644,7 @@
 
     //*****************Monitoramento
     {
-      "DownstreamPathTemplate": "/v1/area/listar",
+      "DownstreamPathTemplate": "/api/area/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -660,7 +660,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/area/obter",
+      "DownstreamPathTemplate": "/api/area/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -676,7 +676,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/sensor/listar",
+      "DownstreamPathTemplate": "/api/sensor/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -692,7 +692,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/sensor/obter",
+      "DownstreamPathTemplate": "/api/sensor/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -708,7 +708,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/alerta/listar",
+      "DownstreamPathTemplate": "/api/alerta/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -724,7 +724,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/v1/alerta/obter",
+      "DownstreamPathTemplate": "/api/alerta/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

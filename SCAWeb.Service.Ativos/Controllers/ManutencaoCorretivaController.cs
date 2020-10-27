@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/manutencao-corretiva")]
+    [Route("api/manutencao-corretiva")]
     [Authorize]
     public class ManutencaoCorretivaController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IManutencaoService service
         )
         {
-            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            manutencao.user = User.Identity.Name;
             return (ServiceActionResult)service.ManutencaoCorretivaUpdate(manutencao);
         }
 
@@ -34,7 +34,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IAgendaManutencaoService service
         )
         {
-            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            agendaManut.user = User.Identity.Name;
             return (ServiceActionResult)service.AgendaManutencaoCorretiva(agendaManut);
         }
 
@@ -46,7 +46,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IAgendaManutencaoService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            agendaManut.user = User.Identity.Name;
             return (ServiceActionResult)service.UpdateAgendaManutencaoCorretiva(agendaManut);
         }
 
@@ -58,7 +58,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IAgendaManutencaoService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            agendaManut.user = User.Identity.Name;
             return (ServiceActionResult)service.DeleteAgendaManutencaoCorretiva(agendaManut);
         }
 

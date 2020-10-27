@@ -25,8 +25,17 @@ export class DataService {
     //return this.http.get(`${this.baseUrl}/v1/leiloes/user`, { headers: this.composeHeaders(token) });
   }
 
+  //----------Insumos
+  public getAllInsumosAtivos(token) {
+    return this.http.get(`${environment.apiUrl}insumo/ativos`, { headers: this.composeHeaders(token) });
+  }
+
   public getAllInsumos(token) {
     return this.http.get(`${environment.apiUrl}insumo/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  public getByIdInsumo(id, token) {
+    return this.http.get(`${environment.apiUrl}insumo/obter/` + id, { headers: this.composeHeaders(token) });
   }
 
   public postInsumo(data, token) {
@@ -49,6 +58,24 @@ export class DataService {
     return this.http.get(`${environment.apiUrl}fornecedor/listar`, { headers: this.composeHeaders(token) });
   }
 
+  //---------Agenda Manutenção
+  public postAgendaManut(data, token) {
+    return this.http.post(`${environment.apiUrl}manutencao-corretiva/agendamento`, data, { headers: this.composeHeaders(token) });
+  }
+
+  public deleteAgendaManut(data, token) {
+    return this.http.put(`${environment.apiUrl}manutencao-corretiva/agendamento/excluir`, data, { headers: this.composeHeaders(token) });
+  }
+
+  public putAgendaManut(data, token) {
+    return this.http.put(`${environment.apiUrl}manutencao-corretiva/agendamento/editar`, data, { headers: this.composeHeaders(token) });
+  }
+
+  public getAllManutAgendadas(token) {
+    return this.http.get(`${environment.apiUrl}agendamento/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  //---------Manutenção
   public GetAllPreventiva(token) {
     return this.http.get(`${environment.apiUrl}manutencao-preventiva/agendamento/listar`, { headers: this.composeHeaders(token) });
   }

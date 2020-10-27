@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/manutencao-preventiva")]
+    [Route("api/manutencao-preventiva")]
     [Authorize]
     public class ManutencaoPreventivaController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace SCAWeb.Service.Ativos.Controllers
             [FromServices] IManutencaoService service
         )
         {
-            //  command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            manutencao.user = User.Identity.Name;
             return (ServiceActionResult)service.ManutencaoPreventivaUpdate(manutencao);
         }
 

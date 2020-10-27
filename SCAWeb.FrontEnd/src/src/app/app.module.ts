@@ -18,6 +18,10 @@ import { ButtonDetailsRendererComponent } from './renderer/button-details-render
 import { ButtonEditRendererComponent } from './renderer/button-edit-renderer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { NewInsumoComponent } from './pages/new-insumo/new-insumo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgendaManutencaoComponent } from './pages/agenda-manutencao/agenda-manutencao.component';
+import { ListAgendamentosComponent } from './pages/list-agendamentos/list-agendamentos.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { CommonModule } from '@angular/common';
     ManutencaoInsumoComponent,
     ButtonDeleteRendererComponent,
     ButtonDetailsRendererComponent,
-    ButtonEditRendererComponent
+    ButtonEditRendererComponent,
+    NewInsumoComponent,
+    AgendaManutencaoComponent,
+    ListAgendamentosComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,7 @@ import { CommonModule } from '@angular/common';
     //CoreModule,
     ToastrModule.forRoot(),
     CommonModule,
+    BrowserAnimationsModule,
     AgGridModule.withComponents([ButtonDeleteRendererComponent, ButtonDetailsRendererComponent, ButtonEditRendererComponent])
   ],
   providers: [],

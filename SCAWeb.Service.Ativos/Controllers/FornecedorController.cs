@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/fornecedor")]
+    [Route("api/fornecedor")]
     [Authorize]
     public class FornecedorController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IFornecedorService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            fornecedor.user = User.Identity.Name;
             return (ServiceActionResult)service.UpdateFornecedor(fornecedor);
         }
 
@@ -47,9 +47,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IFornecedorService service
         )
         {
-            //  var insumo = new InsumoEntity();
-
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            ///fornecedor.user = User.Identity.Name;
             return (ServiceActionResult)service.DeleteFornecedor(id);
         }
 

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Ativos.Controllers
 {
     [ApiController]
-    [Route("v1/insumo")]
+    [Route("api/insumo")]
     [Authorize]
     public class InsumoController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IInsumoService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            insumo.user = User.Identity.Name;
             return (ServiceActionResult)service.UpdateInsumo(insumo);
         }
 
@@ -47,7 +47,7 @@ namespace SCAWeb.Service.Ativos.Controllers
            [FromServices] IInsumoService service
         )
         {
-            //command.User = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            insumo.user = User.Identity.Name;
             return (ServiceActionResult)service.DeleteInsumo(insumo);
         }
 

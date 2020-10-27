@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCAWeb.Service.Ativos", "SC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCAWeb.Service.Monitoramento", "SCAWeb.Service.Monitoramento\SCAWeb.Service.Monitoramento.csproj", "{75339C05-7A0B-42D3-AD10-820CC5578405}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedido", "Pedido\Pedido.csproj", "{1E02455C-B8FE-45DE-A258-4319A1B5524D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedido", "Pedido\Pedido.csproj", "{04541B75-1AE8-469F-A990-AA5AD64FB23C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{75339C05-7A0B-42D3-AD10-820CC5578405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75339C05-7A0B-42D3-AD10-820CC5578405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75339C05-7A0B-42D3-AD10-820CC5578405}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E02455C-B8FE-45DE-A258-4319A1B5524D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E02455C-B8FE-45DE-A258-4319A1B5524D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E02455C-B8FE-45DE-A258-4319A1B5524D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E02455C-B8FE-45DE-A258-4319A1B5524D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04541B75-1AE8-469F-A990-AA5AD64FB23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04541B75-1AE8-469F-A990-AA5AD64FB23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04541B75-1AE8-469F-A990-AA5AD64FB23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04541B75-1AE8-469F-A990-AA5AD64FB23C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
