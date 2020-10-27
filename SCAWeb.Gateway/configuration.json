@@ -644,7 +644,7 @@
 
     //*****************Monitoramento
     {
-      "DownstreamPathTemplate": "/api/area/listar",
+      "DownstreamPathTemplate": "/api/area-risco/listar",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -652,7 +652,7 @@
           "Port": 44310
         }
       ],
-      "UpstreamPathTemplate": "/area/listar",
+      "UpstreamPathTemplate": "/area-risco/listar",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -660,7 +660,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/area/obter",
+      "DownstreamPathTemplate": "/api/area-risco/obter",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -668,7 +668,7 @@
           "Port": 44310
         }
       ],
-      "UpstreamPathTemplate": "/area/obter",
+      "UpstreamPathTemplate": "/area-risco/obter",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",

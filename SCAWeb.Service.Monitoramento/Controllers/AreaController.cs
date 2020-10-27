@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Monitoramento.Controllers
 {
     [ApiController]
-    [Route("v1/area")]
+    [Route("api/area-risco")]
     [Authorize]
     public class AreaController : ControllerBase
     {

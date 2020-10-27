@@ -3,26 +3,23 @@
       <h2>Iniciar Nova Manutenção</h2>
   
       <div class="row">
-        <div class="col">
-            <div class="form-group">  
-              <label for="tipoManutencao">Tipo da Manutenção</label>
-              <select class="form-control" id="tipoManutencao" required>
-                  <option *ngFor="let item of vm.listTipoManutencao" 
-                    [value]="item.value" formControlName="tipo_manutencao" (click)="buscaItensManutencao(item.value)">{{item.text}}</option>
-              </select>
-              <div class="invalid-feedback">
-                  Favor informar o tipo de Manutenção que será ralizada!
-              </div>
+        <div class="col-sm-2">
+          <div class="form-group">  
+            <label for="tipoManutencao" class="col-form-label col-form-label-sm">Tipo da Manutenção</label>
+            <select class="form-control form-control-sm" id="tipoManutencao" required>
+              <option *ngFor="let item of vm.listTipoManutencao" 
+                [value]="item.tipo_manutencao" formControlName="tipo_manutencao" (click)="buscaItensManutencao(item.tipo_manutencao)">{{item.text}}</option>
+            </select>
+            <div class="invalid-feedback">
+                Favor informar o tipo de Manutenção que será ralizada!
             </div>
           </div>
-      </div>
-    
-      <div class="row">
-        <div class="col">
+        </div>  
+        <div class="col-sm-6">
           <div class="form-group">
-            <label for="insumo">Insumo</label>
-            <select class="form-control" id="insumo" required>
-                <option *ngFor="let item of listInsumosAgendadosAteHoje" [value]="item.Id" formControlName="id_insumo">{{item.descricao_insumo}}</option>
+            <label for="insumo" class="col-form-label col-form-label-sm">Insumo</label>
+            <select class="form-control form-control-sm" id="insumo" required>
+                <option *ngFor="let item of listInsumosAgendadosAteHoje" [value]="item.id_insumo" formControlName="id_insumo">{{item.descricao_insumo}}</option>
             </select>
             <div class="invalid-feedback">
               Favor informar o Insumo que será realizado a manutenção!
@@ -32,10 +29,10 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
           <div class="form-group">
-            <label for="descricaoManutencao">Descrição da Manutenção</label>
-            <input type="text" class="form-control" id="descricaoManutencao" formControlName="descricao_manutencao" required>
+            <label for="descricaoManutencao" class="col-form-label col-form-label-sm">Descrição da Manutenção</label>
+            <input type="text" class="form-control form-control-sm" id="descricaoManutencao" formControlName="descricao_manutencao" required>
             <div class="invalid-feedback">
               Favor informar a Descrição da Manutenção!
             </div>
@@ -44,27 +41,43 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-sm-3">
           <div class="form-group">
-            <label for="dataInicial">Data de início</label>
-            <input type="datetime-local" class="form-control" id="dataInicial" formControlName="data_inicio" desabled>
+            <label for="dataInicial" class="col-form-label col-form-label-sm">Data de início</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="dataInicial" formControlName="data_inicio" desabled>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="dataFinal" class="col-form-label col-form-label-sm">Data final</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="dataFinal" formControlName="data_fim" desabled>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <button class="btn btn-success btn-sm pt-0" (click)="salvar()" [disabled]="form.invalid">
+        <div class="col-sm-2">
+          <div class="form-group">  
+            <label for="statusManut" class="col-form-label col-form-label-sm">Status</label>
+            <input type="text" class="form-control form-control-sm" id="statusManut" [value]="status_manut" disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="btn-group col-sm-3">
+          <button class="btn btn-success btn-sm pt-0" (click)="salvar()" [disabled]="form.invalid">
             <i class="fa fa-floppy-o"></i>Salvar</button>
   
-        <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()">
-            <i class="fa fa-times"></i>Cancelar</button>
-
-        <button class="btn btn-danger btn-sm" type="button" (click)="finalizarManutencao()">
+          <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()">
+              <i class="fa fa-times"></i>Cancelar</button>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-danger btn-sm" type="button" (click)="finalizarManutencao()">
             Finalizar Manutenção
-        </button>
-  
-        <!-- <button class="btn btn-secondary btn-sm" type="button" (click)="teste()"><i class="fa fa-times"></i>teste</button> -->
-      </div>
+          </button> 
+        </div>
+       </div>
     </div>
 </form>
   

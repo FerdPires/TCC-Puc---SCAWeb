@@ -75,13 +75,17 @@ export class DataService {
     return this.http.get(`${environment.apiUrl}agendamento/listar`, { headers: this.composeHeaders(token) });
   }
 
-  //---------Manutenção
   public GetAllPreventiva(token) {
     return this.http.get(`${environment.apiUrl}manutencao-preventiva/agendamento/listar`, { headers: this.composeHeaders(token) });
   }
 
   public GetAllCorretiva(token) {
     return this.http.get(`${environment.apiUrl}manutencao-corretiva/agendamento/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  //---------Manutenção
+  public getAllManutencoes(token) {
+    return this.http.get(`${environment.apiUrl}manutencao/listar`, { headers: this.composeHeaders(token) });
   }
 
   public postManutencao(data, token) {
@@ -94,5 +98,18 @@ export class DataService {
 
   public putManutPreventiva(data, token) {
     return this.http.put(`${environment.apiUrl}manutencao-preventiva/editar`, data, { headers: this.composeHeaders(token) });
+  }
+
+  //--------Monitoramento
+  public getAllAreasRisco(token) {
+    return this.http.get(`${environment.apiUrl}area-risco/listar`, { headers: this.composeHeaders(token) });
+  }
+
+  public getAllSensores(id, token) {
+    return this.http.get(`${environment.apiUrl}sensor/listar/` + id, { headers: this.composeHeaders(token) });
+  }
+
+  public getAllAlertas(id, token) {
+    return this.http.get(`${environment.apiUrl}alerta/listar/` + id, { headers: this.composeHeaders(token) });
   }
 }

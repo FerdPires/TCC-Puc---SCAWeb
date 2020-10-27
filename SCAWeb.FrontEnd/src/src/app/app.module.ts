@@ -22,6 +22,10 @@ import { NewInsumoComponent } from './pages/new-insumo/new-insumo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgendaManutencaoComponent } from './pages/agenda-manutencao/agenda-manutencao.component';
 import { ListAgendamentosComponent } from './pages/list-agendamentos/list-agendamentos.component';
+import { ListManutencaoComponent } from './pages/list-manutencao/list-manutencao.component';
+import { AreasRiscoComponent } from './pages/areas-risco/areas-risco.component';
+import { SensorAreaRiscoComponent } from './pages/sensor-area-risco/sensor-area-risco.component';
+import { AlertasComponent } from './pages/alertas/alertas.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { ListAgendamentosComponent } from './pages/list-agendamentos/list-agenda
     ButtonEditRendererComponent,
     NewInsumoComponent,
     AgendaManutencaoComponent,
-    ListAgendamentosComponent
+    ListAgendamentosComponent,
+    ListManutencaoComponent,
+    AreasRiscoComponent,
+    SensorAreaRiscoComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,

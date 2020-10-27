@@ -7,9 +7,9 @@ export class ManutencaoInsumoModel {
         this.Registros = this.LimpaRegistros();
 
         this.listTipoManutencao = [
-            { value: '', text: '' },
-            { value: 1, text: 'Preventiva' },
-            { value: 2, text: 'Corretiva' }
+            { tipo_manutencao: '', text: '' },
+            { tipo_manutencao: 1, text: 'Preventiva' },
+            { tipo_manutencao: 2, text: 'Corretiva' }
         ];
 
     }
