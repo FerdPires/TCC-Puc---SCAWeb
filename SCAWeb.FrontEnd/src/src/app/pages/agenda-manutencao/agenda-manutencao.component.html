@@ -7,7 +7,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label for="insumo" class="col-form-label col-form-label-sm">Insumo</label>
-            <select class="form-control form-control-sm" id="insumo" formControlName="id_insumo" required>
+            <select class="form-control form-control-sm" id="insumo" formControlName="id_insumo" [attr.disabled]="estadoTela == 'Editar' ? true : null" required>
                 <option *ngFor="let item of listInsumosAtivos" [value]="item.id_insumo">{{item.descricao_insumo}}</option>
             </select>
             <div class="invalid-feedback">

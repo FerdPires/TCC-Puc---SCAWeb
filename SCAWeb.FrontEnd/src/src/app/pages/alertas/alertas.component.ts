@@ -36,8 +36,8 @@ export class AlertasComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
-      this.nome_barragem = history.state.data.nome_barragem;
-      //this.nome_sensor = history.state.data.nome_sensor;
+      this.nome_barragem = history.state.data.area;
+      this.nome_sensor = history.state.data.nome_sensor;
       this.service.getAllAlertas(history.state.data.id, accessToken)
         .subscribe(
           (data: any) => {

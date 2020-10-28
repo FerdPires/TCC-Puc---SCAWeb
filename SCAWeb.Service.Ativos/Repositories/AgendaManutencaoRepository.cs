@@ -49,7 +49,7 @@ namespace SCAWeb.Service.Ativos.Repositories
         public IList<AgendaManutencaoEntity> GetAll()
         {
             return _context.AgendaManutencao.AsNoTracking()
-                .OrderBy(x => x.data_manutencao).ThenBy(x => x.status_agenda).ToList();
+                .OrderByDescending(x => x.status_agenda).ThenBy(x => x.data_manutencao).ToList();
         }
 
         public IList<AgendaManutencaoEntity> GetAllUntilToday()

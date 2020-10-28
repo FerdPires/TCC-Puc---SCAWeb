@@ -78,7 +78,7 @@ namespace SCAWeb.Service.Ativos.Services
 
             _insumoRepository.Update(insumo);
 
-            return new ServiceActionResult(true, "Insumo excluído!", insumo);
+            return new ServiceActionResult(true, "Insumo desativado!", insumo);
         }
 
         public IServiceActionResult UpdateInsumo(InsumoEntity insumoEntity)
@@ -89,6 +89,7 @@ namespace SCAWeb.Service.Ativos.Services
                 return new ServiceActionResult(false, "Algo deu errado ao editar!", insumoEntity.Notifications);
 
             var insumo = _insumoRepository.GetById(insumoEntity.Id);
+            var insumoOld = _insumoRepository.GetById(insumoEntity.Id);
 
             if (insumo == null)
                 return new ServiceActionResult(false, "O registro que você está editando não existe!", null);
@@ -104,8 +105,8 @@ namespace SCAWeb.Service.Ativos.Services
 
             _insumoRepository.Update(insumo);
 
-            if(insumoEntity.status_insumo == StatusInsumo.Inativo)
-                return new ServiceActionResult(true, "Insumo desativado!", insumo);
+            if(insumoOld.status_insumo == StatusInsumo.Inativo)
+                return new ServiceActionResult(true, "Insumo ativado!", insumo);
 
             return new ServiceActionResult(true, "Insumo salvo!", insumo);
         }

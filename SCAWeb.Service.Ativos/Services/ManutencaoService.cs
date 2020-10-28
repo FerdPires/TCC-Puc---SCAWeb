@@ -40,6 +40,7 @@ namespace SCAWeb.Service.Ativos.Services
                 manutencaoEntity.descricao_manutencao,
                 StatusManutencao.Iniciada,
                 DateTime.Now,
+                DateTime.Now,
                 insumo.Id,
                 manutencaoEntity.user
             );

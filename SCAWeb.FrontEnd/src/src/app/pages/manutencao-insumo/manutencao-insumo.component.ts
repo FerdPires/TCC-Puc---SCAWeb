@@ -21,6 +21,7 @@ export class ManutencaoInsumoComponent implements OnInit {
   public listInsumosAgendadosAteHoje = [];
   public data_inicio_manut = "";
   public status_manut = "";
+  public listInsumos = [];
 
   constructor(
     private fb: FormBuilder,
@@ -33,56 +34,127 @@ export class ManutencaoInsumoComponent implements OnInit {
       tipo_manutencao: null,
       descricao_manutencao: '',
       status_manutencao: null,
-      data_inicio: moment(new Date()).format("DD/MM/YYYY"),
+      data_inicio: moment(new Date()).toJSON().substring(0, 10),
       data_fim: '',
       id_insumo: ''
     });
   }
 
   ngOnInit(): void {
-    if (history.state.data) {
-      this.buscaItensManutencao(history.state.data.tipo_manutencao);
+    this.authService.user$.subscribe(x => {
+      const accessToken = localStorage.getItem('access_token');
+      if (history.state.data) {
+        this.estadoTela = history.state.estadoTela;
+        this.buscaItensManutencao(history.state.data.tipo_manutencao);
+        // if (history.state.data.status_manutencao == 1) {
+        //   this.service.GetAllPreventiva(accessToken)
+        //     .subscribe(
+        //       (data: any) => {
+        //         data.forEach(element => {
+        //           for (let y = 0; y < this.listInsumos.length; y++) {
+        //             const j = this.listInsumos[y];
+        //             if (element.id_insumo == j.id) {
+        //               this.listInsumosAgendadosAteHoje.push({
+        //                 id_insumo: element.id_insumo,
+        //                 descricao_insumo: j.descricao_insumo
+        //               });
+        //               break;
+        //             }
+        //           }
+        //         });
+        //       }
+        //     );
+        // } else {
+        //   this.service.GetAllCorretiva(accessToken)
+        //     .subscribe(
+        //       (data: any) => {
+        //         data.forEach(element => {
+        //           for (let y = 0; y < this.listInsumos.length; y++) {
+        //             const j = this.listInsumos[y];
+        //             if (element.id_insumo == j.id) {
+        //               this.listInsumosAgendadosAteHoje.push({
+        //                 id_insumo: element.id_insumo,
+        //                 descricao_insumo: j.descricao_insumo
+        //               });
+        //               break;
+        //             }
+        //           }
+        //         });
+        //       }
+        //     );
+        // }
 
-      this.status_manut = history.state.data.status_manutencao == 1 ? "INICIADA" : "CONCLUÍDA";
-      this.form = this.fb.group({
-        Id: history.state.data.id,
-        tipo_manutencao: history.state.data.tipo_manutencao,
-        descricao_manutencao: history.state.data.descricao_manutencao,
-        data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
-        data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
-        id_insumo: history.state.data.id_insumo
-      });
-    }
-    else {
-      this.estadoTela = Operacao.I;
-      //  this.data_inicio_manut = moment(new Date()).format("DD/MM/YYYY");
-      this.status_manut = "INICIADA";
-    }
+        this.status_manut = history.state.data.status_manutencao == 1 ? "INICIADA" : "CONCLUÍDA";
+        this.form = this.fb.group({
+          Id: history.state.data.id,
+          tipo_manutencao: history.state.data.tipo_manutencao,
+          descricao_manutencao: history.state.data.descricao_manutencao,
+          data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
+          data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
+          id_insumo: history.state.data.id_insumo
+        });
+      }
+      else {
+        this.estadoTela = Operacao.I;
+        //  this.data_inicio_manut = moment(new Date()).format("DD/MM/YYYY");
+        this.status_manut = "INICIADA";
+      }
+    });
   }
 
-  buscaItensManutencao(data: any) {
+  buscaItensManutencao(e: any) {
     this.authService.user$.subscribe(x => {
-      debugger
       const accessToken = localStorage.getItem('access_token');
-      if (data == 1) {
-        this.service.GetAllPreventiva(accessToken)
-          .subscribe(
-            (data: any) => {
-              data.forEach(element => {
-                this.listInsumosAgendadosAteHoje.push({ id_insumo: element.id, descricao_insumo: element.descricao_insumo });
-              });
-            }
-          );
-      } else if (data == 2) {
-        this.service.GetAllCorretiva(accessToken)
-          .subscribe(
-            (data: any) => {
-              data.forEach(element => {
-                this.listInsumosAgendadosAteHoje.push({ id_insumo: element.id, descricao_insumo: element.descricao_insumo });
-              });
-            }
-          );
+      if (this.estadoTela != Operacao.I) {
+        var val = e;
+      } else {
+        var val = e.target.value;
       }
+      this.listInsumosAgendadosAteHoje = [];
+      this.service.getAllInsumos(accessToken)
+        .subscribe(
+          (insumos: any) => {
+            this.listInsumos = insumos;
+
+            if (val == "1") {
+              this.service.GetAllPreventiva(accessToken)
+                .subscribe(
+                  (data: any) => {
+                    data.forEach(element => {
+                      for (let y = 0; y < this.listInsumos.length; y++) {
+                        const j = this.listInsumos[y];
+                        if (element.id_insumo == j.id) {
+                          this.listInsumosAgendadosAteHoje.push({
+                            id_insumo: element.id_insumo,
+                            descricao_insumo: j.descricao_insumo
+                          });
+                          break;
+                        }
+                      }
+                    });
+                  }
+                );
+            } else if (val == "2") {
+              this.service.GetAllCorretiva(accessToken)
+                .subscribe(
+                  (data: any) => {
+                    data.forEach(element => {
+                      for (let y = 0; y < this.listInsumos.length; y++) {
+                        const j = this.listInsumos[y];
+                        if (element.id_insumo == j.id) {
+                          this.listInsumosAgendadosAteHoje.push({
+                            id_insumo: element.id_insumo,
+                            descricao_insumo: j.descricao_insumo
+                          });
+                          break;
+                        }
+                      }
+                    });
+                  }
+                );
+            }
+          }
+        );
     });
   }
 
@@ -91,7 +163,7 @@ export class ManutencaoInsumoComponent implements OnInit {
     if (this.estadoTela == Operacao.I) {
       this.authService.user$.subscribe(x => {
         const accessToken = localStorage.getItem('access_token');
-        this.vm.Registros.tipo_manutencao = this.form.value.tipo_manutencao;
+        this.vm.Registros.tipo_manutencao = Number(this.form.value.tipo_manutencao);
         this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
         //this.vm.Registros.status_manutencao = this.form.value.qtd_dias_manut_prev;
         this.vm.Registros.data_inicio = new Date(this.form.value.data_inicio).toJSON();
@@ -121,8 +193,11 @@ export class ManutencaoInsumoComponent implements OnInit {
       const accessToken = localStorage.getItem('access_token');
       this.vm.Registros.Id = this.form.value.Id;
       this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
-      this.vm.Registros.tipo_manutencao = this.form.value.tipo_manutencao;
-      this.vm.Registros.id_insumo = this.form.value.id_insumo;
+      //this.vm.Registros.tipo_manutencao = Number(this.form.value.tipo_manutencao);
+      this.vm.Registros.status_manutencao = this.status_manut == "INICIADA" ? 1 : 2;
+      //this.vm.Registros.id_insumo = this.form.value.id_insumo;
+      this.vm.Registros.data_inicio = new Date(this.form.value.data_inicio).toJSON();
+      this.vm.Registros.data_fim = new Date(this.form.value.data_fim).toJSON();
 
       if (this.form.value.tipo_manutencao == 1) {
         this.service.putManutCorretiva(this.vm.Registros, accessToken)
@@ -156,7 +231,7 @@ export class ManutencaoInsumoComponent implements OnInit {
   cancelar() {
     if (confirm('Cancelar as mudanças?')) {
       this.vm.Registros = this.vm.LimpaRegistros();
-      // this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/");
     }
   }
 

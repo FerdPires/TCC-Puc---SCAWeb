@@ -42,6 +42,7 @@ export class AgendaManutencaoComponent implements OnInit {
       const accessToken = localStorage.getItem('access_token');
 
       this.tipo_manutencao = "CORRETIVA";
+      this.status_agenda = "ABERTO";
       this.service.getAllInsumosAtivos(accessToken)
         .subscribe(
           (data: any) => {
@@ -54,7 +55,7 @@ export class AgendaManutencaoComponent implements OnInit {
       if (history.state.data) {
         this.estadoTela = Operacao.E;
         this.form = this.fb.group({
-          Id: history.state.data.id,
+          Id: history.state.data.Id,
           data_manutencao: new Date(history.state.data.data_manutencao).toJSON().substring(0, 10),
           id_insumo: history.state.data.id_insumo
         });
@@ -94,7 +95,7 @@ export class AgendaManutencaoComponent implements OnInit {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
       this.vm.Registros.Id = this.form.value.Id;
-      this.vm.Registros.status_insumo = this.status_agenda == "ABERTO" ? 1 : 2;
+      this.vm.Registros.status_agenda = 1;
       this.vm.Registros.data_manutencao = new Date(this.form.value.data_manutencao).toJSON();
 
       this.service.putAgendaManut(this.vm.Registros, accessToken)

@@ -1,4 +1,4 @@
-<form class="was-validated" [formGroup]="form">
+<form [formGroup]="form">
     <div class="container">
       <br>
       <h4>Detalhes do Insumo</h4>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="form-group">
             <label for="descricaoInsumo" class="col-form-label col-form-label-sm">Descrição do Insumo</label>
             <input type="text" class="form-control form-control-sm" id="descricaoInsumo" formControlName="descricao_insumo" maxlength="100"

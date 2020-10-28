@@ -1,10 +1,11 @@
-﻿using Flunt.Validations;
+﻿using Flunt.Notifications;
+using Flunt.Validations;
 using SCAWeb.Service.Ativos.Util.Enums;
 using System;
 
 namespace SCAWeb.Service.Ativos.Entities
 {
-    public class AgendaManutencaoEntity : Entity, IValidatable
+    public class AgendaManutencaoEntity : Notifiable, IValidatable
     {
         public AgendaManutencaoEntity()
         {
@@ -14,6 +15,7 @@ namespace SCAWeb.Service.Ativos.Entities
         public AgendaManutencaoEntity(TipoManutencao tipoManutencao, StatusAgendaManut statusAgenda, DateTime dataManutencao,
             DateTime dataAtualizacao, Guid idInsumo, string User)
         {
+            Id = Guid.NewGuid();
             tipo_manutencao = tipoManutencao;
             status_agenda = statusAgenda;
             data_manutencao = dataManutencao;
@@ -21,6 +23,8 @@ namespace SCAWeb.Service.Ativos.Entities
             id_insumo = idInsumo;
             user = User;
         }
+
+        public Guid Id { get; set; }
         public TipoManutencao tipo_manutencao { get; set; } 
         public StatusAgendaManut status_agenda { get; set; }
         public DateTime data_manutencao { get; set; }

@@ -16,6 +16,7 @@ export class ListAgendamentosComponent implements OnInit {
   rowData: any;
   rowDataClicked = {};
   public columnDefs;
+  public listInsumos = [];
 
   constructor(
     private authService: AuthService,
@@ -36,13 +37,12 @@ export class ListAgendamentosComponent implements OnInit {
         }
       },
       {
-        headerName: 'Tipo da Manutenção', field: 'tipo_manutencao', sortable: true, filter: true, width: 120, resizable: true,
+        headerName: 'Tipo da Manutenção', field: 'tipo_manutencao', sortable: true, filter: true, width: 200, resizable: true,
         valueFormatter: this.formatManut
       },
       { headerName: 'Insumo', field: 'descricao_insumo', sortable: true, filter: true, width: 500, resizable: true },
-
       {
-        headerName: 'Status do Agendamento', field: 'status_insumo', sortable: true, filter: true, width: 120, resizable: true,
+        headerName: 'Status', field: 'status_agenda', sortable: true, filter: true, width: 120, resizable: true,
         valueFormatter: this.formatStatus,
         cellStyle: this.cellStyle,
       },
@@ -59,9 +59,33 @@ export class ListAgendamentosComponent implements OnInit {
       this.service.getAllManutAgendadas(accessToken)
         .subscribe(
           (data: any) => {
-            this.rowData = data;
+            this.service.getAllInsumos(accessToken)
+              .subscribe(
+                (insumos: any) => {
+                  this.rowData = [];
+                  for (let x = 0; x < data.length; x++) {
+                    const i = data[x];
+                    for (let y = 0; y < insumos.length; y++) {
+                      const j = insumos[y];
+                      if (i.id_insumo == j.id) {
+                        this.rowData.push({
+                          Id: i.id,
+                          tipo_manutencao: i.tipo_manutencao,
+                          status_agenda: i.status_agenda,
+                          data_manutencao: i.data_manutencao,
+                          data_atualizacao: i.data_atualizacao,
+                          id_insumo: i.id_insumo,
+                          descricao_insumo: j.descricao_insumo
+                        });
+                        break;
+                      }
+                    }
+                  }
+                }
+              );
           }
         );
+
     });
   }
 
@@ -71,7 +95,7 @@ export class ListAgendamentosComponent implements OnInit {
   }
 
   setButton(param) {
-    if (param.data.status_insumo == 1 && param.data.tipo_manutencao == 2) {
+    if (param.data.status_agenda == 1 && param.data.tipo_manutencao == 2) {
       var buttonEdit = {
         component: 'buttonEdit'
       };
@@ -80,15 +104,15 @@ export class ListAgendamentosComponent implements OnInit {
   }
 
   formatManut(params) {
-    return params.value == 1 ? "PREVENTIVA" : "CORRETIVA";
+    return params.data.tipo_manutencao == 1 ? "PREVENTIVA" : "CORRETIVA";
   }
 
   formatStatus(params) {
-    return params.value == 1 ? "ABERTO" : "FECHADO";
+    return params.data.status_agenda == 1 ? "ABERTO" : "FECHADO";
   }
 
   cellStyle(params) {
-    if (params.value == 1 && new Date(params.data.data_manutencao) < new Date()) {
+    if (params.data.status_agenda == 1 && new Date(params.data.data_manutencao) < new Date()) {
       return { backgroundColor: '#ffaaaa' };
     } else {
       return { backgroundColor: '#fff' };
@@ -96,9 +120,9 @@ export class ListAgendamentosComponent implements OnInit {
   }
 
   formatDate(params) {
-    var date = ((new Date(params.value).getDate()).toString().length == 1 ? "0" + new Date(params.value).getDate() : new Date(params.value).getDate()) + "/" +
-      ((new Date(params.value).getMonth() + 1).toString().length == 1 ? "0" + new Date(params.value).getMonth() + 1 : new Date(params.value).getMonth() + 1) + "/" +
-      new Date(params.value).getFullYear()
+    var date = ((new Date(params.data.data_manutencao).getDate()).toString().length == 1 ? "0" + new Date(params.data.data_manutencao).getDate() : new Date(params.data.data_manutencao).getDate()) + "/" +
+      ((new Date(params.data.data_manutencao).getMonth() + 1).toString().length == 1 ? "0" + new Date(params.data.data_manutencao).getMonth() + 1 : new Date(params.data.data_manutencao).getMonth() + 1) + "/" +
+      new Date(params.data.data_manutencao).getFullYear()
     return date;
   }
 

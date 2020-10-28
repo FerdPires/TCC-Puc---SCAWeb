@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace SCAWeb.Service.Monitoramento.Controllers
 {
     [ApiController]
-    [Route("v1/alerta")]
+    [Route("api/alerta")]
     [Authorize]
     public class AlertaSensorController : ControllerBase
     {

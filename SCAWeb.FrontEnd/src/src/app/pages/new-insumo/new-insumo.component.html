@@ -1,13 +1,13 @@
 <form class="was-validated" [formGroup]="form">
     <div class="container">
       <br>
-      <h4>Cadastrar um novo Insumo</h4>
+      <h4>{{titulo}}</h4>
   
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
             <label for="tipoInsumo" class="col-form-label col-form-label-sm">Tipo de Insumo</label>
-            <select class="form-control form-control-sm" id="tipoInsumo" formControlName="id_tipo_insumo" required>
+            <select class="form-control form-control-sm" id="tipoInsumo" formControlName="id_tipo_insumo" [attr.disabled]="(estadoTela == 'Editar' || status_insumo == 'INATIVO')? true : null" required>
                 <option *ngFor="let item of listTipoInsumo" [value]="item.id_tipo_insumo">{{item.descricao_tp_insumo}}</option>
             </select>
             <div class="invalid-feedback">
@@ -18,7 +18,7 @@
         <div class="col-sm-4">
           <div class="form-group">  
             <label for="fornecedor" class="col-form-label col-form-label-sm">Fornecedor</label>
-            <select class="form-control form-control-sm" id="fornecedor" formControlName="id_fornec_insumo" required>
+            <select class="form-control form-control-sm" id="fornecedor" formControlName="id_fornec_insumo" [attr.disabled]="(estadoTela == 'Editar' || status_insumo == 'INATIVO')? true : null" required>
                 <option *ngFor="let item of listFornecedor" [value]="item.id_fornec_insumo">{{item.nome_fantasia}}</option>
             </select>
             <div class="invalid-feedback">
@@ -29,10 +29,10 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="form-group">
             <label for="descricaoInsumo" class="col-form-label col-form-label-sm">Descrição do Insumo</label>
-            <input type="text" class="form-control form-control-sm" id="descricaoInsumo" formControlName="descricao_insumo" maxlength="100"
+            <input type="text" class="form-control form-control-sm" id="descricaoInsumo" formControlName="descricao_insumo" [attr.disabled]="status_insumo == 'INATIVO'? true : null" maxlength="100"
               required>
             <div class="invalid-feedback">
               Favor informar o Insumo!
@@ -51,7 +51,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="dataInicial" class="col-form-label col-form-label-sm">Data de aquisição</label>
-            <input type="date" class="form-control form-control-sm" id="dataInicial" formControlName="data_aquisicao" required>
+            <input type="date" class="form-control form-control-sm" id="dataInicial" formControlName="data_aquisicao" [attr.disabled]="(estadoTela == 'Editar' || status_insumo == 'INATIVO')? true : null" required>
             <div class="invalid-feedback">
               Favor informar a data de aquisição desse Insumo!
             </div>
@@ -60,7 +60,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="diasManutPrev" class="col-form-label col-form-label-sm">Quantidade de dias para Manutenção Preventiva</label>
-            <input type="number" class="form-control form-control-sm" id="diasManutPrev" formControlName="qtd_dias_manut_prev" required>
+            <input type="number" class="form-control form-control-sm" id="diasManutPrev" formControlName="qtd_dias_manut_prev" [attr.disabled]="status_insumo == 'INATIVO'? true : null" required>
             <div class="invalid-feedback">
               Favor informar a quantidade de dias para Manutenção Preventiva!
             </div>
@@ -70,15 +70,20 @@
 
       <div class="row">
         <div class="btn-group col-sm-3">
-          <button class="btn btn-success btn-sm" (click)="salvar()" [disabled]="form.invalid">
+          <button class="btn btn-success btn-sm" (click)="salvar()" [disabled]="form.invalid || status_insumo == 'INATIVO'">
             <i class="fa fa-floppy-o"></i> Salvar</button>
 
-            <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()">
+            <button class="btn btn-secondary btn-sm" type="button" (click)="cancelar()" [disabled]="status_insumo == 'INATIVO'">
               <i class="fa fa-times"></i> Cancelar</button>
         </div>
 
-        <div class="col-sm-2">
-          <button class="btn btn-danger btn-sm" type="button" (click)="delete()" [disabled]="estadoTela == 'Incluir'">
+        <div class="col-sm-2" [hidden]="status_insumo == 'ATIVO'">
+          <button class="btn btn-success btn-sm" type="button" (click)="enable()" [disabled]="estadoTela == 'Incluir'">
+             Habilitar Insumo</button>
+        </div>
+
+        <div class="col-sm-2" [hidden]="status_insumo == 'INATIVO'">
+          <button class="btn btn-danger btn-sm" type="button" (click)="disable()" [disabled]="estadoTela == 'Incluir'">
             <i class="fa fa-trash"></i> Desabilitar Insumo</button>
         </div>
       </div>

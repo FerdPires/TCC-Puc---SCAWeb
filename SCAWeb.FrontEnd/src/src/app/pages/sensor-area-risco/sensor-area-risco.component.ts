@@ -63,7 +63,7 @@ export class SensorAreaRiscoComponent implements OnInit {
 
   details(e) {
     this.rowDataClicked = e.rowData;
-    this.router.navigate(['/alertas'], { state: { data: this.rowDataClicked } });
+    this.router.navigate(['/alertas'], { state: { data: this.rowDataClicked, area: this.nome_barragem } });
   }
 
   formatStatus(params) {

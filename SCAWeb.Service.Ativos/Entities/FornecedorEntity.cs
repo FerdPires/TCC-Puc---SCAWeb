@@ -1,9 +1,10 @@
-﻿using Flunt.Validations;
+﻿using Flunt.Notifications;
+using Flunt.Validations;
 using System;
 
 namespace SCAWeb.Service.Ativos.Entities
 {
-    public class FornecedorEntity : Entity, IValidatable
+    public class FornecedorEntity : Notifiable, IValidatable
     {
         public FornecedorEntity()
         {
@@ -12,6 +13,7 @@ namespace SCAWeb.Service.Ativos.Entities
 
         public FornecedorEntity(string cnpjFornecedor, string nomeFantasia, string razaoSocial, DateTime dataAtualizacao, string User)
         {
+            Id = Guid.NewGuid();
             cnpj_fornecedor = cnpjFornecedor;
             nome_fantasia = nomeFantasia;
             razao_social = razaoSocial;
@@ -19,6 +21,7 @@ namespace SCAWeb.Service.Ativos.Entities
             user = User;
         }
 
+        public Guid Id { get; set; }
         public string cnpj_fornecedor { get; set; }
         public string nome_fantasia { get; set; }
         public string razao_social { get; set; }

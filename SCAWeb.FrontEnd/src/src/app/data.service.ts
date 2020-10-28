@@ -72,7 +72,7 @@ export class DataService {
   }
 
   public getAllManutAgendadas(token) {
-    return this.http.get(`${environment.apiUrl}agendamento/listar`, { headers: this.composeHeaders(token) });
+    return this.http.get(`${environment.apiUrl}manutencao/agendamento/listar`, { headers: this.composeHeaders(token) });
   }
 
   public GetAllPreventiva(token) {

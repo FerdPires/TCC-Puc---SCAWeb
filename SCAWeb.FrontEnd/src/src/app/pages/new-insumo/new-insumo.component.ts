@@ -21,12 +21,14 @@ export class NewInsumoComponent implements OnInit {
   public listTipoInsumo = [];
   public listFornecedor = [];
   public status_insumo = "";
+  public titulo = "";
 
   constructor(
     private fb: FormBuilder,
     private service: DataService,
     private authService: AuthService,
     private toastr: ToastrService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       Id: '',
@@ -61,6 +63,7 @@ export class NewInsumoComponent implements OnInit {
           }
         );
       if (history.state.data) {
+        this.titulo = "Editar Insumo";
         this.estadoTela = Operacao.E;
         this.form = this.fb.group({
           Id: history.state.data.id,
@@ -73,6 +76,7 @@ export class NewInsumoComponent implements OnInit {
         this.status_insumo = history.state.data.status_insumo == 1 ? "ATIVO" : (history.state.data.status_insumo == 2 ? "INATIVO" : "EM MANUTENÇÃO");
       }
       else {
+        this.titulo = "Cadastrar um novo Insumo";
         this.estadoTela = Operacao.I;
         this.status_insumo = "ATIVO";
       }
@@ -97,7 +101,7 @@ export class NewInsumoComponent implements OnInit {
             } else {
               this.toastr.error(res.message);
             }
-            //this.router.navigateByUrl("/");
+            this.router.navigateByUrl("/");
           });
       });
     }
@@ -122,12 +126,12 @@ export class NewInsumoComponent implements OnInit {
           } else {
             this.toastr.error(res.message);
           }
-          //this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/");
         });
     });
   }
 
-  delete() {
+  disable() {
     if (confirm('Deseja realmente desativar esse Insumo?')) {
       this.authService.user$.subscribe(x => {
         const accessToken = localStorage.getItem('access_token');
@@ -145,10 +149,33 @@ export class NewInsumoComponent implements OnInit {
     }
   }
 
+  enable() {
+    if (confirm('Deseja realmente ativar esse Insumo?')) {
+      this.authService.user$.subscribe(x => {
+        const accessToken = localStorage.getItem('access_token');
+        this.vm.Registros = {};
+        this.vm.Registros.Id = this.form.value.Id;
+        this.vm.Registros.descricao_insumo = this.form.value.descricao_insumo;
+        this.vm.Registros.status_insumo = 1;
+        this.vm.Registros.qtd_dias_manut_prev = this.form.value.qtd_dias_manut_prev;
+        this.service.putInsumo(this.vm.Registros, accessToken)
+          .subscribe((res: any) => {
+            if (res.success) {
+              this.status_insumo = "ATIVO";
+              this.toastr.success(res.message);
+            } else {
+              this.toastr.error(res.message);
+            }
+            //this.router.navigateByUrl("/");
+          });
+      });
+    }
+  }
+
   cancelar() {
     if (confirm('Cancelar as mudanças?')) {
       this.vm.Registros = this.vm.LimpaRegistros();
-      //this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/");
     }
   }
 }

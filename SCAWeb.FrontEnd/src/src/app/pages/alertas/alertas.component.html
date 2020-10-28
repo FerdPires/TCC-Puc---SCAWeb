@@ -1,1 +1,25 @@
-<p>alertas works!</p>
+<form>
+    <div class="container">
+      <br>
+      <h4>Alertas</h4>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+            <h5>Área: {{nome_barragem}}</h5>
+            <h5>Sensor: {{nome_sensor}}</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <ag-grid-angular 
+                    style="width: 100%; height: 400px;" 
+                    class="ag-theme-alpine"
+                    [rowData]="rowData" 
+                    [columnDefs]="columnDefs">
+                </ag-grid-angular>
+            </div>
+        </div>
+      </div>
+    </div>
+</form>
