@@ -32,7 +32,12 @@ namespace SCAWeb.Service.Ativos.Services
             var insumo = _insumoRepository.GetById(manutencaoEntity.id_insumo);
 
             if (insumo == null)
-                return new ServiceActionResult(false, "O Insumo para qual você está tentando realizar a manutenção não existe!", null);
+                return new ServiceActionResult(false, "O Insumo para qual você está tentando realizar a manutenção não existe!", null); 
+
+            if(insumo.status_insumo == StatusInsumo.Manutencao)
+            {
+                return new ServiceActionResult(false, "Esse insumo já está em manutenção!", null);
+            }
 
             var manutencao = new ManutencaoEntity
             (

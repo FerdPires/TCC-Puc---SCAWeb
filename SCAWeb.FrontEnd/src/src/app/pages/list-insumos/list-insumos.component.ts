@@ -48,7 +48,7 @@ export class ListInsumosComponent implements OnInit {
       },
       { headerName: 'Insumo', field: 'descricao_insumo', sortable: true, filter: true, width: 500, resizable: true },
       {
-        headerName: 'Status', field: 'status_insumo', sortable: true, filter: true, width: 120, resizable: true,
+        headerName: 'Status', field: 'status_insumo', sortable: true, filter: true, width: 170, resizable: true,
         valueFormatter: this.formatStatus,
         cellStyle: this.cellStyle,
       },
@@ -62,6 +62,7 @@ export class ListInsumosComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
+      const refreshToken = localStorage.getItem('refresh_token');
       this.service.getAllInsumos(accessToken)
         .subscribe(
           (data: any) => {

@@ -28,7 +28,8 @@ namespace SCAWeb.Service.Monitoramento
         {
             services.AddControllers();
 
-            services.AddDbContext<MonitoramentoContext>(options => options.UseInMemoryDatabase("Database"));
+            //services.AddDbContext<MonitoramentoContext>(options => options.UseInMemoryDatabase("Database"));
+            services.AddDbContext<MonitoramentoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connectionLocalDb")));
 
             services.AddTransient<IAlertaSensorRepository, AlertaSensorRepository>();
             services.AddTransient<IAreaRepository, AreaRepository>();

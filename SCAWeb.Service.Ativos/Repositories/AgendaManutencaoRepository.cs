@@ -31,7 +31,7 @@ namespace SCAWeb.Service.Ativos.Repositories
 
         public AgendaManutencaoEntity GetByInsumo(Guid id)
         {
-            return _context.AgendaManutencao.FirstOrDefault(x => x.id_insumo == id);
+            return _context.AgendaManutencao.AsNoTracking().Where(x => x.id_insumo == id && x.status_agenda == StatusAgendaManut.Aberto).FirstOrDefault();
         }
 
         public void Delete(AgendaManutencaoEntity agendaManutencao)
@@ -49,7 +49,7 @@ namespace SCAWeb.Service.Ativos.Repositories
         public IList<AgendaManutencaoEntity> GetAll()
         {
             return _context.AgendaManutencao.AsNoTracking()
-                .OrderByDescending(x => x.status_agenda).ThenBy(x => x.data_manutencao).ToList();
+                .OrderBy(x => x.status_agenda).ThenBy(x => x.data_manutencao).ToList();
         }
 
         public IList<AgendaManutencaoEntity> GetAllUntilToday()

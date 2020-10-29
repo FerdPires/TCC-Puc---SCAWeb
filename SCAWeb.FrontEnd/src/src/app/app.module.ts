@@ -8,7 +8,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { TesteComponent } from './pages/teste/teste.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { CoreModule } from './core/core.module';
 import { InsumoComponent } from './pages/insumo/insumo.component';
 import { ListInsumosComponent } from './pages/list-insumos/list-insumos.component';
 import { AgGridModule } from 'ag-grid-angular';
@@ -26,6 +25,7 @@ import { ListManutencaoComponent } from './pages/list-manutencao/list-manutencao
 import { AreasRiscoComponent } from './pages/areas-risco/areas-risco.component';
 import { SensorAreaRiscoComponent } from './pages/sensor-area-risco/sensor-area-risco.component';
 import { AlertasComponent } from './pages/alertas/alertas.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,7 @@ import { AlertasComponent } from './pages/alertas/alertas.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    //CoreModule,
+    CoreModule,
     ToastrModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,

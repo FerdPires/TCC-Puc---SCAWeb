@@ -676,7 +676,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/sensor/listar",
+      "DownstreamPathTemplate": "/api/sensor/listar/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -684,7 +684,7 @@
           "Port": 44310
         }
       ],
-      "UpstreamPathTemplate": "/sensor/listar",
+      "UpstreamPathTemplate": "/sensor/listar/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -708,7 +708,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/alerta/listar",
+      "DownstreamPathTemplate": "/api/alerta/listar/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -716,7 +716,7 @@
           "Port": 44310
         }
       ],
-      "UpstreamPathTemplate": "/alerta/listar",
+      "UpstreamPathTemplate": "/alerta/listar/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",

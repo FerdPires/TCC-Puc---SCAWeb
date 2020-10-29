@@ -44,6 +44,7 @@ export class AreasRiscoComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
+      const refreshToken = localStorage.getItem('refresh_token');
       this.service.getAllAreasRisco(accessToken)
         .subscribe(
           (data: any) => {

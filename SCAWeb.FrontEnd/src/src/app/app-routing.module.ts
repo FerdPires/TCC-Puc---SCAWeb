@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AgendaManutencaoComponent } from './pages/agenda-manutencao/agenda-manutencao.component';
+import { AlertasComponent } from './pages/alertas/alertas.component';
+import { AreasRiscoComponent } from './pages/areas-risco/areas-risco.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InsumoComponent } from './pages/insumo/insumo.component';
 import { ListAgendamentosComponent } from './pages/list-agendamentos/list-agendamentos.component';
@@ -10,6 +12,7 @@ import { ListManutencaoComponent } from './pages/list-manutencao/list-manutencao
 import { LoginComponent } from './pages/login/login.component';
 import { ManutencaoInsumoComponent } from './pages/manutencao-insumo/manutencao-insumo.component';
 import { NewInsumoComponent } from './pages/new-insumo/new-insumo.component';
+import { SensorAreaRiscoComponent } from './pages/sensor-area-risco/sensor-area-risco.component';
 import { TesteComponent } from './pages/teste/teste.component';
 
 const routes: Routes = [
@@ -24,7 +27,10 @@ const routes: Routes = [
       { path: 'agenda-manutencao', component: AgendaManutencaoComponent, canActivate: [AuthGuard] },
       { path: 'lista-manutencao', component: ListManutencaoComponent, canActivate: [AuthGuard] },
       { path: 'lista-agendamento', component: ListAgendamentosComponent, canActivate: [AuthGuard] },
-      { path: 'manutencao', component: ManutencaoInsumoComponent, canActivate: [AuthGuard] }
+      { path: 'manutencao', component: ManutencaoInsumoComponent, canActivate: [AuthGuard] },
+      { path: 'area-risco', component: AreasRiscoComponent, canActivate: [AuthGuard] },
+      { path: 'sensores-risco', component: SensorAreaRiscoComponent, canActivate: [AuthGuard] },
+      { path: 'alertas', component: AlertasComponent, canActivate: [AuthGuard] },
     ]
   },
 ];

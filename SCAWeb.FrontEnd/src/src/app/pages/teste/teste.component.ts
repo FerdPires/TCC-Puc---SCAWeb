@@ -13,36 +13,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./teste.component.css']
 })
 export class TesteComponent implements OnInit {
-  // private readonly apiUrl = `${environment.apiUrl}authenticated`;
-  // busy = false;
-  // value: string = "";
-  // constructor(private http: HttpClient) { }
-
-  // ngOnInit(): void {
-  //   debugger
-  //   this.subscription = this.authService.user$.subscribe((x) => {
-  //       const accessToken = localStorage.getItem('access_token');
-  //       const refreshToken = localStorage.getItem('refresh_token');
-  //       // optional touch-up: if a tab shows login page, then refresh the page to reduce duplicate login
-  //     });
-  //     this.service.teste()
-  //       .subscribe(
-  //         (data: any) => {
-  //           debugger
-  //           this.value = data;
-
-  //         }
-  //       );
-
-  //   // this.busy = true;
-  //   // this.http
-  //   //   .get<string>(this.apiUrl)
-  //   //   .pipe(finalize(() => (this.busy = false)))
-  //   //   .subscribe((x) => {
-  //   //     debugger
-  //   //     this.value = x;
-  //   //   });
-  // }
 
   private subscription: Subscription;
   value: string = "";
@@ -58,7 +28,6 @@ export class TesteComponent implements OnInit {
     this.authService.user$.subscribe((x) => {
       const accessToken = localStorage.getItem('access_token');
       const refreshToken = localStorage.getItem('refresh_token');
-      debugger
       this.service.teste(accessToken)
         .subscribe(
           (data: any) => {

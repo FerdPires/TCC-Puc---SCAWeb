@@ -38,7 +38,7 @@ namespace SCAWeb.Service.Ativos.Repositories
         public IList<ManutencaoEntity> GetAll()
         {
             return _context.Manutencao.AsNoTracking()
-                .OrderBy(x => x.data_inicio).ThenBy(x => x.status_manutencao).ToList();
+                .OrderBy(x => x.status_manutencao).ThenBy(x => x.data_inicio).ToList();
         }
 
         public IList<ManutencaoEntity> GetAllIniciada()

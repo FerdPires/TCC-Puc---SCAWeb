@@ -27,6 +27,22 @@ export class AuthGuard implements CanActivate {
         return this.authService.user$.pipe(
             map((user) => {
                 if (user) {
+                    if (state.url == "/area-risco" && user.role != "admin") {
+                        this.router.navigate(['login'], {
+                            queryParams: { returnUrl: "/" },
+                        });
+                        return false;
+                    } else if (state.url == "/sensores-risco" && user.role != "admin") {
+                        this.router.navigate(['login'], {
+                            queryParams: { returnUrl: "/" },
+                        });
+                        return false;
+                    } else if (state.url == "/alertas" && user.role != "admin") {
+                        this.router.navigate(['login'], {
+                            queryParams: { returnUrl: "/" },
+                        });
+                        return false;
+                    }
                     return true;
                 } else {
                     this.router.navigate(['login'], {

@@ -23,35 +23,6 @@ namespace SCAWeb.Gateway
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
-
-            //   var authenticationProviderKey = "TestKey";
-
-            //   var identityUrl = "https://localhost:44352";
-
-            //var key = Encoding.ASCII.GetBytes(Settings.Secret);
-
-            //services.AddAuthentication(x =>
-            //{
-            //    x.DefaultAuthenticateScheme = "AuthSchemeKey";
-            //    //   x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    //      x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer("AuthSchemeKey", x =>
-            //{
-            //    x.Authority = identityUrl;
-            //    x.RequireHttpsMetadata = false;
-            //    x.SaveToken = true;
-            //    x.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuerSigningKey = true,
-            //        //IssuerSigningKey = new SymmetricSecurityKey(key),
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-            //        ValidateIssuer = false,
-            //        ValidAudiences = new[] { "pedido" }
-            //     //   ValidAudience = Configuration["Jwt:Issuer"],
-            //    };
-            //});
             var jwtTokenConfig = Configuration.GetSection("jwtTokenConfig").Get<JwtTokenConfig>();
             services.AddSingleton(jwtTokenConfig);
 
@@ -73,33 +44,10 @@ namespace SCAWeb.Gateway
                     ValidIssuer = Configuration["jwtTokenConfig:issuer"],
                     ValidAudience = Configuration["jwtTokenConfig:audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwtTokenConfig:secret"])),
-                    //ValidateIssuerSigningKey = true,
-                    //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-                    //ValidateIssuer = false,
-                    //ValidAudiences = new[] { "pedido" }
                     ClockSkew = TimeSpan.Zero
                 };
             });
-
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = "AuthSchemeKey";
-            //})
-            //.AddJwtBearer("AuthSchemeKey", options =>
-            //{
-            //    options.RequireHttpsMetadata = false;
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuer = true,
-            //        ValidateAudience = true,
-            //        ValidateLifetime = true,
-            //        ValidateIssuerSigningKey = true,
-            //        ValidIssuer = Configuration["Jwt:Issuer"],
-            //        ValidAudience = Configuration["Jwt:Issuer"],
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-            //        ClockSkew = TimeSpan.Zero
-            //    };
-            //});
+     
 
             services.AddCors(options =>
             {

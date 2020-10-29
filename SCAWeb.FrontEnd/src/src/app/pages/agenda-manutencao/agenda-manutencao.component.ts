@@ -40,6 +40,7 @@ export class AgendaManutencaoComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
+      const refreshToken = localStorage.getItem('refresh_token');
 
       this.tipo_manutencao = "CORRETIVA";
       this.status_agenda = "ABERTO";
@@ -130,7 +131,11 @@ export class AgendaManutencaoComponent implements OnInit {
   cancelar() {
     if (confirm('Cancelar as mudanças?')) {
       this.vm.Registros = this.vm.LimpaRegistros();
-      //this.router.navigateByUrl("/");
+      if (this.estadoTela == Operacao.E) {
+        this.router.navigateByUrl("/lista-agendamento");
+      } else {
+        this.router.navigateByUrl("/");
+      }
     }
   }
 

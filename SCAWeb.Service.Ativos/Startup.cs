@@ -32,7 +32,6 @@ namespace SCAWeb.Service.Ativos
             //services.AddDbContext<AtivosContext>(options => options.UseInMemoryDatabase("Database"));
             services.AddDbContext<AtivosContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connectionLocalDb")));
 
-
             services.AddTransient<IAgendaManutencaoRepository, AgendaManutencaoRepository>();
             services.AddTransient<IFornecedorRepository, FornecedorRepository>();
             services.AddTransient<IInsumoRepository, InsumoRepository>();
@@ -93,11 +92,6 @@ namespace SCAWeb.Service.Ativos
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
-            //app.UseCors(x => x
-            //    .AllowAnyOrigin()
-            //    .AllowAnyMethod()
-            //    .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();

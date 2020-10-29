@@ -33,10 +33,10 @@ namespace SCAWeb.Service.Monitoramento.Data
             modelBuilder.Entity<SensorEntity>().Property(x => x.data_atualizacao).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<SensorEntity>().Property(x => x.id_area).IsRequired();
 
-            modelBuilder.Entity<AlertaSensorEntity>().ToTable("Fornecedor");
+            modelBuilder.Entity<AlertaSensorEntity>().ToTable("Alertas");
             modelBuilder.Entity<AlertaSensorEntity>().HasKey(x => x.Id);
-            modelBuilder.Entity<AlertaSensorEntity>().Property(x => x.user).IsRequired();
             modelBuilder.Entity<AlertaSensorEntity>().Property(x => x.tipo_aletra).IsRequired();
+            modelBuilder.Entity<AlertaSensorEntity>().Property(x => x.descricao_alerta).IsRequired();         
             modelBuilder.Entity<AlertaSensorEntity>().Property(x => x.data_atualizacao).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<AlertaSensorEntity>().Property(x => x.id_sensor).IsRequired();
         }

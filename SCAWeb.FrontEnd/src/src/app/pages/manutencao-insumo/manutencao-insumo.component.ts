@@ -22,6 +22,7 @@ export class ManutencaoInsumoComponent implements OnInit {
   public data_inicio_manut = "";
   public status_manut = "";
   public listInsumos = [];
+  public titulo = "";
 
   constructor(
     private fb: FormBuilder,
@@ -44,45 +45,10 @@ export class ManutencaoInsumoComponent implements OnInit {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
       if (history.state.data) {
+        this.titulo = "Editar Manutenção";
         this.estadoTela = history.state.estadoTela;
         this.buscaItensManutencao(history.state.data.tipo_manutencao);
-        // if (history.state.data.status_manutencao == 1) {
-        //   this.service.GetAllPreventiva(accessToken)
-        //     .subscribe(
-        //       (data: any) => {
-        //         data.forEach(element => {
-        //           for (let y = 0; y < this.listInsumos.length; y++) {
-        //             const j = this.listInsumos[y];
-        //             if (element.id_insumo == j.id) {
-        //               this.listInsumosAgendadosAteHoje.push({
-        //                 id_insumo: element.id_insumo,
-        //                 descricao_insumo: j.descricao_insumo
-        //               });
-        //               break;
-        //             }
-        //           }
-        //         });
-        //       }
-        //     );
-        // } else {
-        //   this.service.GetAllCorretiva(accessToken)
-        //     .subscribe(
-        //       (data: any) => {
-        //         data.forEach(element => {
-        //           for (let y = 0; y < this.listInsumos.length; y++) {
-        //             const j = this.listInsumos[y];
-        //             if (element.id_insumo == j.id) {
-        //               this.listInsumosAgendadosAteHoje.push({
-        //                 id_insumo: element.id_insumo,
-        //                 descricao_insumo: j.descricao_insumo
-        //               });
-        //               break;
-        //             }
-        //           }
-        //         });
-        //       }
-        //     );
-        // }
+
 
         this.status_manut = history.state.data.status_manutencao == 1 ? "INICIADA" : "CONCLUÍDA";
         this.form = this.fb.group({
@@ -95,6 +61,7 @@ export class ManutencaoInsumoComponent implements OnInit {
         });
       }
       else {
+        this.titulo = "Iniciar nova Manutenção";
         this.estadoTela = Operacao.I;
         //  this.data_inicio_manut = moment(new Date()).format("DD/MM/YYYY");
         this.status_manut = "INICIADA";
@@ -189,8 +156,8 @@ export class ManutencaoInsumoComponent implements OnInit {
 
   update() {
     this.authService.user$.subscribe(x => {
-      debugger
       const accessToken = localStorage.getItem('access_token');
+      const refreshToken = localStorage.getItem('refresh_token');
       this.vm.Registros.Id = this.form.value.Id;
       this.vm.Registros.descricao_manutencao = this.form.value.descricao_manutencao;
       //this.vm.Registros.tipo_manutencao = Number(this.form.value.tipo_manutencao);
@@ -198,9 +165,10 @@ export class ManutencaoInsumoComponent implements OnInit {
       //this.vm.Registros.id_insumo = this.form.value.id_insumo;
       this.vm.Registros.data_inicio = new Date(this.form.value.data_inicio).toJSON();
       this.vm.Registros.data_fim = new Date(this.form.value.data_fim).toJSON();
+      this.vm.Registros.id_insumo = this.form.value.id_insumo;
 
       if (this.form.value.tipo_manutencao == 1) {
-        this.service.putManutCorretiva(this.vm.Registros, accessToken)
+        this.service.putManutPreventiva(this.vm.Registros, accessToken)
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
@@ -210,7 +178,7 @@ export class ManutencaoInsumoComponent implements OnInit {
             //  this.router.navigateByUrl("/");
           });
       } else if (this.form.value.tipo_manutencao == 2) {
-        this.service.putManutPreventiva(this.vm.Registros, accessToken)
+        this.service.putManutCorretiva(this.vm.Registros, accessToken)
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
@@ -224,14 +192,19 @@ export class ManutencaoInsumoComponent implements OnInit {
   }
 
   finalizarManutencao() {
-    this.vm.Registros.status_manutencao = 2;
+    this.vm.Registros = {};
+    this.status_manut = "CONCLUÍDA";
     this.update();
   }
 
   cancelar() {
     if (confirm('Cancelar as mudanças?')) {
       this.vm.Registros = this.vm.LimpaRegistros();
-      this.router.navigateByUrl("/");
+      if (this.estadoTela == Operacao.E) {
+        this.router.navigateByUrl("/lista-manutencao");
+      } else {
+        this.router.navigateByUrl("/");
+      }
     }
   }
 

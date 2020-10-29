@@ -21,7 +21,7 @@ export class AlertasComponent implements OnInit {
   ) {
     this.columnDefs = [
       {
-        headerName: 'Tipo do Alerta', field: 'tipo_aletra', sortable: true, filter: true, width: 500, resizable: true,
+        headerName: 'Tipo do Alerta', field: 'tipo_aletra', sortable: true, filter: true, width: 160, resizable: true,
         valueFormatter: this.formatStatus,
         cellStyle: this.cellStyle,
       },
@@ -36,7 +36,8 @@ export class AlertasComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(x => {
       const accessToken = localStorage.getItem('access_token');
-      this.nome_barragem = history.state.data.area;
+      const refreshToken = localStorage.getItem('refresh_token');
+      this.nome_barragem = history.state.area;
       this.nome_sensor = history.state.data.nome_sensor;
       this.service.getAllAlertas(history.state.data.id, accessToken)
         .subscribe(
