@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MQdubtZsIXEW5VUj8rPv2MY3EegKGvCaXoxxqpxiw8lMI0OCquaimNRJsAdNjPCuihb+lzQzpnu40Mv/u4zN0g==",
+  "dgSpecHash": "vsR2OFWDxm4Ak+s8J5yZZ+ivmTHABTZ64paPiDnT1DUAYLtX+gZG0BI28ZZTj4/qLpZW8qkLo8xR/J+OIqc2gw==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
+  "projectFilePath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

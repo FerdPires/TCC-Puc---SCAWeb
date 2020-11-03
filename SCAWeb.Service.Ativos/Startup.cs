@@ -71,6 +71,7 @@ namespace SCAWeb.Service.Ativos
             });
 
             #region Swagger
+            //services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(string.Format(@"SCAWeb.Service.Ativos.xml", System.AppDomain.CurrentDomain.BaseDirectory));

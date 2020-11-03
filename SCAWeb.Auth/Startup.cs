@@ -59,6 +59,7 @@ namespace SCAWeb.Auth
             services.AddScoped<IUserService, UserService>();
 
             #region Swagger
+            //services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(string.Format(@"SCAWeb.Auth.xml", System.AppDomain.CurrentDomain.BaseDirectory));

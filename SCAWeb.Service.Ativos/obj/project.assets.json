@@ -6692,11 +6692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Ativos\\SCAWeb.Service.Ativos.csproj",
+      "projectUniqueName": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Ativos\\SCAWeb.Service.Ativos.csproj",
       "projectName": "SCAWeb.Service.Ativos",
-      "projectPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Ativos\\SCAWeb.Service.Ativos.csproj",
+      "projectPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Ativos\\SCAWeb.Service.Ativos.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Ativos\\obj\\",
+      "outputPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Ativos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -80,6 +80,7 @@ export class AgendaManutencaoComponent implements OnInit {
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }
@@ -103,6 +104,7 @@ export class AgendaManutencaoComponent implements OnInit {
         .subscribe((res: any) => {
           if (res.success) {
             this.toastr.success(res.message);
+            this.router.navigateByUrl("/");
           } else {
             this.toastr.error(res.message);
           }

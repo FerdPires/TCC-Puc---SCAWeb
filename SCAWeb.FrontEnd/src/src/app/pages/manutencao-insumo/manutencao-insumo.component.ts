@@ -47,18 +47,27 @@ export class ManutencaoInsumoComponent implements OnInit {
       if (history.state.data) {
         this.titulo = "Editar Manutenção";
         this.estadoTela = history.state.estadoTela;
-        this.buscaItensManutencao(history.state.data.tipo_manutencao);
+        // this.buscaItensManutencao(history.state.data.tipo_manutencao);
 
-
-        this.status_manut = history.state.data.status_manutencao == 1 ? "INICIADA" : "CONCLUÍDA";
-        this.form = this.fb.group({
-          Id: history.state.data.id,
-          tipo_manutencao: history.state.data.tipo_manutencao,
-          descricao_manutencao: history.state.data.descricao_manutencao,
-          data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
-          data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
-          id_insumo: history.state.data.id_insumo
-        });
+        this.service.getAllInsumos(accessToken)
+          .subscribe(
+            (insumos: any) => {
+              insumos.forEach(element => {
+                this.listInsumosAgendadosAteHoje.push({
+                  id_insumo: element.id,
+                  descricao_insumo: element.descricao_insumo
+                });
+              })
+              this.status_manut = history.state.data.status_manutencao == 1 ? "INICIADA" : "CONCLUÍDA";
+              this.form = this.fb.group({
+                Id: history.state.data.id,
+                tipo_manutencao: history.state.data.tipo_manutencao,
+                descricao_manutencao: history.state.data.descricao_manutencao,
+                data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
+                data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
+                id_insumo: history.state.data.id_insumo
+              });
+            })
       }
       else {
         this.titulo = "Iniciar nova Manutenção";
@@ -99,6 +108,16 @@ export class ManutencaoInsumoComponent implements OnInit {
                         }
                       }
                     });
+                    // if (history.state.data) {
+                    //   this.form = this.fb.group({
+                    //     Id: history.state.data.id,
+                    //     tipo_manutencao: history.state.data.tipo_manutencao,
+                    //     descricao_manutencao: history.state.data.descricao_manutencao,
+                    //     data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
+                    //     data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
+                    //     id_insumo: history.state.data.id_insumo
+                    //   });
+                    // }
                   }
                 );
             } else if (val == "2") {
@@ -117,6 +136,16 @@ export class ManutencaoInsumoComponent implements OnInit {
                         }
                       }
                     });
+                    // if (history.state.data) {
+                    //   this.form = this.fb.group({
+                    //     Id: history.state.data.id,
+                    //     tipo_manutencao: history.state.data.tipo_manutencao,
+                    //     descricao_manutencao: history.state.data.descricao_manutencao,
+                    //     data_inicio: new Date(history.state.data.data_inicio).toJSON().substring(0, 10),
+                    //     data_fim: new Date(history.state.data.data_fim).toJSON().substring(0, 10),
+                    //     id_insumo: history.state.data.id_insumo
+                    //   });
+                    // }
                   }
                 );
             }
@@ -141,6 +170,7 @@ export class ManutencaoInsumoComponent implements OnInit {
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }
@@ -172,20 +202,22 @@ export class ManutencaoInsumoComponent implements OnInit {
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }
-            //  this.router.navigateByUrl("/");
+
           });
       } else if (this.form.value.tipo_manutencao == 2) {
         this.service.putManutCorretiva(this.vm.Registros, accessToken)
           .subscribe((res: any) => {
             if (res.success) {
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }
-            // this.router.navigateByUrl("/");
+
           });
       }
     });

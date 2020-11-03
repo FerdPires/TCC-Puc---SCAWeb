@@ -56,6 +56,7 @@ namespace SCAWeb.Service.Monitoramento
             });
 
             #region Swagger
+            //services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(string.Format(@"SCAWeb.Service.Monitoramento.xml", System.AppDomain.CurrentDomain.BaseDirectory));

@@ -6655,11 +6655,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
+      "projectUniqueName": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
       "projectName": "SCAWeb.Service.Monitoramento",
-      "projectPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
+      "projectPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Monitoramento\\obj\\",
+      "outputPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Monitoramento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -141,10 +141,11 @@ export class NewInsumoComponent implements OnInit {
             if (res.success) {
               this.status_insumo = "INATIVO";
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }
-            //this.router.navigateByUrl("/");
+
           });
       });
     }
@@ -164,6 +165,7 @@ export class NewInsumoComponent implements OnInit {
             if (res.success) {
               this.status_insumo = "ATIVO";
               this.toastr.success(res.message);
+              this.router.navigateByUrl("/");
             } else {
               this.toastr.error(res.message);
             }

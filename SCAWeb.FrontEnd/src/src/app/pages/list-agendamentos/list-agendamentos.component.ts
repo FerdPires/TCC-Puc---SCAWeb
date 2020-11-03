@@ -122,7 +122,7 @@ export class ListAgendamentosComponent implements OnInit {
 
   formatDate(params) {
     var date = ((new Date(params.data.data_manutencao).getDate()).toString().length == 1 ? "0" + new Date(params.data.data_manutencao).getDate() : new Date(params.data.data_manutencao).getDate()) + "/" +
-      ((new Date(params.data.data_manutencao).getMonth() + 1).toString().length == 1 ? "0" + new Date(params.data.data_manutencao).getMonth() + 1 : new Date(params.data.data_manutencao).getMonth() + 1) + "/" +
+      ((new Date(params.data.data_manutencao).getMonth() + 1).toString().length == 1 ? "0" + (new Date(params.data.data_manutencao).getMonth() + 1).toString() : new Date(params.data.data_manutencao).getMonth() + 1) + "/" +
       new Date(params.data.data_manutencao).getFullYear()
     return date;
   }

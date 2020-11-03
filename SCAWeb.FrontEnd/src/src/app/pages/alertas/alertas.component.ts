@@ -62,7 +62,7 @@ export class AlertasComponent implements OnInit {
 
   formatDate(params) {
     var date = ((new Date(params.value).getDate()).toString().length == 1 ? "0" + new Date(params.value).getDate() : new Date(params.value).getDate()) + "/" +
-      ((new Date(params.value).getMonth() + 1).toString().length == 1 ? "0" + new Date(params.value).getMonth() + 1 : new Date(params.value).getMonth() + 1) + "/" +
+      ((new Date(params.value).getMonth() + 1).toString().length == 1 ? "0" + (new Date(params.value).getMonth() + 1).toString() : new Date(params.value).getMonth() + 1) + "/" +
       new Date(params.value).getFullYear()
     return date;
   }

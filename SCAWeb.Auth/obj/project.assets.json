@@ -4981,11 +4981,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
+      "projectUniqueName": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
       "projectName": "SCAWeb.Auth",
-      "projectPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
+      "projectPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Auth\\obj\\",
+      "outputPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Auth\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -745,3 +745,738 @@
     "BaseUrl": "http://localhost:44359"
   }
 }
+
+
+//PRODUÇÃO
+
+//{
+//  "Routes": [
+//    //*****************Login
+//    {
+//      "DownstreamPathTemplate": "/api/account/login",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebauth.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/account/login",
+//      "UpstreamHttpMethod": [ "Post" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/account/logout",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebauth.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/account/logout",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/account/user",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebauth.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/account/user",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/account/refresh-token",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebauth.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/account/refresh-token",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    ///*****************end Login
+
+//    //*****************Ativos
+//    {
+//      "DownstreamPathTemplate": "/api/fornecedor/criar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/fornecedor/criar",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/fornecedor/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/fornecedor/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/fornecedor/excluir",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/fornecedor/excluir",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/fornecedor/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/fornecedor/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/fornecedor/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/fornecedor/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/criar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/criar",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/excluir",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/excluir",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/em-manutencao",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/em-manutencao",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/ativos",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/ativos",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/insumo/inativos",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/insumo/inativos",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/tipo-insumo/criar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/tipo-insumo/criar",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/tipo-insumo/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/tipo-insumo/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/tipo-insumo/excluir",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/tipo-insumo/excluir",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/tipo-insumo/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/tipo-insumo/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/tipo-insumo/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/tipo-insumo/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/criar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/criar",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/abertas",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/abertas",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/concluidas",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/concluidas",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/agendamento/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/agendamento/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/agendamento/hoje",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/agendamento/hoje",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/agendamento/abertas",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/agendamento/abertas",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao/agendamento/fechadas",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao/agendamento/fechadas",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/agendamento",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/agendamento/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/excluir",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/agendamento/excluir",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/agendamento/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/agendamento/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-corretiva/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-corretiva/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-preventiva/editar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-preventiva/editar",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-preventiva/agendamento/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-preventiva/agendamento/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/manutencao-preventiva/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebserviceativos.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/manutencao-preventiva/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    //*****************end Ativos
+
+//    //*****************Monitoramento
+//    {
+//      "DownstreamPathTemplate": "/api/area-risco/listar",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/area-risco/listar",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/area-risco/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/area-risco/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/sensor/listar/{id}",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/sensor/listar/{id}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/sensor/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/sensor/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/alerta/listar/{id}",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/alerta/listar/{id}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/alerta/obter",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "scawebservicemonitoramento.azurewebsites.net",
+//          "Port": 443
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/alerta/obter",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
+//    }
+//    //*****************end Monitoramento
+//  ],
+//  "GlobalConfiguration": {
+//    "BaseUrl": "https://scawebgateway.azurewebsites.net"
+//  }
+//}

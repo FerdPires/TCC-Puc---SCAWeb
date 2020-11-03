@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pAtVPFksJyZrgoxg8vgNHo9/4qJQExtXyz/oYCoZQrxRnvi27NYt0ttD138P6a/Y8rYh+QT4utFVhkDrSdqzdw==",
+  "dgSpecHash": "3YFIIhc5od9wKwgFpC62siUok8u20FMflGel5SzPRGyQCcjy0zwaZYQ7K5w4KaJN4ZV6hJcKux+SOSDVdzjuCw==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
+  "projectFilePath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Auth\\SCAWeb.Auth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

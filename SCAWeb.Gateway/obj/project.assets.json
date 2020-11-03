@@ -1854,11 +1854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
+      "projectUniqueName": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
       "projectName": "SCAWeb.Gateway",
-      "projectPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
+      "projectPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Gateway\\SCAWeb.Gateway.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\SCAWeb\\SCAWeb.Gateway\\obj\\",
+      "outputPath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Gateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",

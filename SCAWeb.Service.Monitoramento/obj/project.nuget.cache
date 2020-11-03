@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wBwUAKn0RT3vqdhtkCxS46+/yPlUPU+xa+ccb4F6WEGEDBmuBgFdC/jC8zcZJU7FHsuRMb8bRY9eB0eOKEsK4Q==",
+  "dgSpecHash": "odIZBYWh8F7haImidD0aBnyzTNi8jleDTs6aaJJMBpGzeDpStEgr0jX5+nYAGOv3uS8M6zKjv09aII7TAkdqIQ==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
+  "projectFilePath": "D:\\Projetos\\TCC-Puc-SCAWeb\\SCAWeb.Service.Monitoramento\\SCAWeb.Service.Monitoramento.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\flunt\\1.0.5\\flunt.1.0.5.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
